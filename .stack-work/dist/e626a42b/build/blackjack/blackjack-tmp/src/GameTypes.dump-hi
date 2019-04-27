@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-04-24 00:54:33.9299094 UTC
+2019-04-27 00:58:29.1104265 UTC
 
 interface main:GameTypes 8064
-  interface hash: 00ea2548c74f627f3d6146bc19c51ae6
-  ABI hash: 0514be6dced2c25575aa382cb9e4b53f
-  export-list hash: 9d370e42a2d15e0eb14463ca85fe8062
+  interface hash: 3e296c4c691237b0b298c0fb5a9f56e2
+  ABI hash: 7a0a12d7af90b3db56dbb5c752e4b903
+  export-list hash: ce68de2db8c20b961c777955ca3997a0
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c81183b4f3dbe34d2e7de0e678a2e9cc
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -15,11 +15,12 @@ interface main:GameTypes 8064
   used TH splices: False
   where
 exports:
-  GameTypes.Card{GameTypes.Face GameTypes.Rank}
+  GameTypes.Card{GameTypes.Card}
   GameTypes.Deck{GameTypes.Deck}
   GameTypes.Game{GameTypes.Game}
   GameTypes.Hand{GameTypes.Hand}
   GameTypes.Player{GameTypes.Player}
+  GameTypes.Rank{GameTypes.Ace GameTypes.Eight GameTypes.Five GameTypes.Four GameTypes.Jack GameTypes.King GameTypes.Nine GameTypes.Queen GameTypes.Seven GameTypes.Six GameTypes.Ten GameTypes.Three GameTypes.Two}
   GameTypes.Score
   GameTypes.Suit{GameTypes.Club GameTypes.Diamond GameTypes.Heart GameTypes.Spade}
 module dependencies:
@@ -35,7 +36,8 @@ import  -/  base-4.12.0.0:GHC.Base 954f4c258d193fab7048a63bfeb56dcf
 import  -/  base-4.12.0.0:GHC.Show 48dce8b8129312101170e57c24f3ecbd
 import  -/  base-4.12.0.0:Prelude aea9afd24db8aed3563d7d850ea453c0
 import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+import  -/  integer-gmp-1.0.2.0:GHC.Integer.Type 34234e515bc4cbda6d7cda923884fd3f
+a8e6ae55fd67c3708fd7e810811aa74c
   $fShowCard :: GHC.Show.Show GameTypes.Card
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -44,71 +46,156 @@ import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
                   GameTypes.$fShowCard_$cshowsPrec
                   GameTypes.$fShowCard_$cshow
                   GameTypes.$fShowCard_$cshowList -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+a8e6ae55fd67c3708fd7e810811aa74c
   $fShowCard1 :: GameTypes.Card -> GHC.Show.ShowS
-  {- Arity: 2, Strictness: <S,1*U><L,U>,
+  {- Arity: 2, Strictness: <S,1*U(1*U,1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Card) (w1 :: GHC.Base.String) ->
-                 GameTypes.$w$cshowsPrec 0# w w1) -}
-93e8e3164e057581b4c11d6aad8dc000
-  $fShowCard10 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Spade"#) -}
-760f6daf9803cce6f4520ce2530e892a
-  $fShowCard11 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Face "#) -}
-47ea96c5beb546b3e032a113603bcc54
-  $fShowCard12 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-f0848daaf450b2fd5b27867602116764
-  $fShowCard2 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Rank "#) -}
-53979c5120834fd248bfc53c6eef6456
-  $fShowCard3 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard4) -}
-6cb2f5fb6c2e2fbe78a28f5dae83b921
-  $fShowCard4 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Diamond"#) -}
-69c743cbce8997d4c9217bbc0e6d7258
-  $fShowCard5 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard6) -}
-2612c1324f2be0d38fc792d145e0930a
-  $fShowCard6 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Heart"#) -}
-41489abf26e191885054466cb50eb83b
-  $fShowCard7 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard8) -}
-f2d7535bb506ccb2e02069d20eaaaa9d
-  $fShowCard8 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("Club"#) -}
-16c48b7857526d9899657916c7f6b55d
-  $fShowCard9 :: [GHC.Types.Char]
+                 case w of ww { GameTypes.Card ww1 ww2 ->
+                 GameTypes.$w$cshowsPrec 0# ww1 ww2 w1 }) -}
+cad1dba9e1907b197812624bc0f251a0
+  $fShowCard10 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
-                   GameTypes.$fShowCard10) -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+                   GameTypes.$fShowCard11) -}
+7c643c20199897f1621441f0c539b11d
+  $fShowCard11 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Nine"#) -}
+9ce75f8ebe5c3e0a8c67934c1193b3f8
+  $fShowCard12 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard13) -}
+b797a67f5411d26ae41f8a4daa74516f
+  $fShowCard13 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Eight"#) -}
+a1cf2d9273a6ed768cf5b664366c61bf
+  $fShowCard14 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard15) -}
+f43a4455bbcc324a122f1b98ed6d130c
+  $fShowCard15 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Seven"#) -}
+ab6f0312783e3c538aaa2ca9a3b078a5
+  $fShowCard16 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard17) -}
+7e2cd84cf21153502e1aed119ab3f0f5
+  $fShowCard17 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Six"#) -}
+a4f0384aacddb16c3ddf343b512ead9c
+  $fShowCard18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard19) -}
+297adc295d1b932be13fbd4a611a5c1d
+  $fShowCard19 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Five"#) -}
+906f02a221ee38b3e1b92840bcf13068
+  $fShowCard2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard3) -}
+e4f85e08915d42097d18c848f019239e
+  $fShowCard20 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard21) -}
+cf0749bb1dd11e154bd8487cbcce81d1
+  $fShowCard21 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Four"#) -}
+0584da4250bd93d9a144dc975d7da9a7
+  $fShowCard22 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard23) -}
+0b013d1c7cb1028b98fadae35f855632
+  $fShowCard23 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Three"#) -}
+ad8be4481dc49b03352ff23c02a9c3ab
+  $fShowCard24 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard25) -}
+d7cbb8fba5b0b7eb16199dc9944699d2
+  $fShowCard25 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Two"#) -}
+8f9dd12a5d1ba0b6db3b2bfc8363e2ef
+  $fShowCard26 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard27) -}
+6e68b301388502515009acac532899a0
+  $fShowCard27 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Ace"#) -}
+cf1c4a5530c42c1aace7fbe8e9655de4
+  $fShowCard28 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard29) -}
+c2432d75ffc43e7358c72119da4059c0
+  $fShowCard29 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Diamond"#) -}
+07579d3580b1707fd52e1c4230a0d042
+  $fShowCard3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("King"#) -}
+08c26722da0776ff5b3e7d84785a412c
+  $fShowCard30 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard31) -}
+543f14b5f8a4a330bb160b93ce73e5f8
+  $fShowCard31 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Heart"#) -}
+a6c4d8f0eeec46c1369b53a4cc9649ec
+  $fShowCard32 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard33) -}
+214e52e99a785eede6632931223e4b73
+  $fShowCard33 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Club"#) -}
+be2f81fe85bdf364db1c29ef4d7e7748
+  $fShowCard34 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   GameTypes.$fShowCard35) -}
+fe3149091f0fe4524bd12e71347b6221
+  $fShowCard35 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Spade"#) -}
+26bda958a1bc96a2cbec998625efc84f
+  $fShowCard36 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Card "#) -}
+49c0e816b400c19dc422cdc9dba6d362
+  $fShowCard4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard5) -}
+2ca614a80c6f609b6d478033f4459fdc
+  $fShowCard5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Queen"#) -}
+6f2c2a4676d71d9900e11ee562e7d962
+  $fShowCard6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard7) -}
+91c29b6cb9849fb78c132924779d165a
+  $fShowCard7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Jack"#) -}
+ecbc594d0e2bb599fdeadc29f9014e2f
+  $fShowCard8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# GameTypes.$fShowCard9) -}
+5916ca28df75850f4bb1c67262dc7f75
+  $fShowCard9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Ten"#) -}
+a8e6ae55fd67c3708fd7e810811aa74c
   $fShowCard_$cshow :: GameTypes.Card -> GHC.Base.String
-  {- Arity: 1, Strictness: <S,1*U>,
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>, Inline: [2],
      Unfolding: InlineRule (1, True, False)
-                (\ (x :: GameTypes.Card) ->
-                 GameTypes.$fShowCard_$cshowsPrec
-                   GameTypes.$fShowCard12
-                   x
-                   (GHC.Types.[] @ GHC.Types.Char)) -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+                (\ (w :: GameTypes.Card) ->
+                 case w of ww { GameTypes.Card ww1 ww2 ->
+                 GameTypes.$w$cshow ww1 ww2 }) -}
+a8e6ae55fd67c3708fd7e810811aa74c
   $fShowCard_$cshowList :: [GameTypes.Card] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Card]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Card GameTypes.$fShowCard1 ls s) -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+a8e6ae55fd67c3708fd7e810811aa74c
   $fShowCard_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Card -> GHC.Show.ShowS
-  {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U><L,U>, Inline: [2],
+  {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U)><L,U>,
+     Inline: [2],
      Unfolding: InlineRule (3, True, False)
                 (\ (w :: GHC.Types.Int)
                    (w1 :: GameTypes.Card)
                    (w2 :: GHC.Base.String) ->
                  case w of ww { GHC.Types.I# ww1 ->
-                 GameTypes.$w$cshowsPrec ww1 w1 w2 }) -}
-9ff7091cb03e474ad8f549d77cce9dae
+                 case w1 of ww2 { GameTypes.Card ww3 ww4 ->
+                 GameTypes.$w$cshowsPrec ww1 ww3 ww4 w2 } }) -}
+96fdc6884b8f6c17d30f907111d27fd4
   $fShowDeck :: GHC.Show.Show GameTypes.Deck
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -117,31 +204,34 @@ f2d7535bb506ccb2e02069d20eaaaa9d
                   GameTypes.$fShowDeck_$cshowsPrec
                   GameTypes.$fShowDeck_$cshow
                   GameTypes.$fShowDeck_$cshowList -}
-9ff7091cb03e474ad8f549d77cce9dae
+96fdc6884b8f6c17d30f907111d27fd4
   $fShowDeck1 :: GameTypes.Deck -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Deck) (w1 :: GHC.Base.String) ->
                  case w of ww { GameTypes.Deck ww1 ->
-                 GameTypes.$w$cshowsPrec2 0# ww1 w1 }) -}
+                 GameTypes.$w$cshowsPrec3 0# ww1 w1 }) -}
 159a7bc13bee11d748ed94e2d3839fb6
   $fShowDeck2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Deck "#) -}
-9ff7091cb03e474ad8f549d77cce9dae
+51165256a90943b030c50f88a8bea8a3
+  $fShowDeck3 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+96fdc6884b8f6c17d30f907111d27fd4
   $fShowDeck_$cshow :: GameTypes.Deck -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U)>,
      Unfolding: InlineRule (1, True, False)
                 (\ (x :: GameTypes.Deck) ->
                  GameTypes.$fShowDeck_$cshowsPrec
-                   GameTypes.$fShowCard12
+                   GameTypes.$fShowDeck3
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-9ff7091cb03e474ad8f549d77cce9dae
+96fdc6884b8f6c17d30f907111d27fd4
   $fShowDeck_$cshowList :: [GameTypes.Deck] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Deck]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Deck GameTypes.$fShowDeck1 ls s) -}
-9ff7091cb03e474ad8f549d77cce9dae
+96fdc6884b8f6c17d30f907111d27fd4
   $fShowDeck_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Deck -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U)><L,U>,
@@ -152,8 +242,54 @@ f2d7535bb506ccb2e02069d20eaaaa9d
                    (w2 :: GHC.Base.String) ->
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Deck ww3 ->
-                 GameTypes.$w$cshowsPrec2 ww1 ww3 w2 } }) -}
-d179543d6a3f2e659119adcda9360bf8
+                 GameTypes.$w$cshowsPrec3 ww1 ww3 w2 } }) -}
+9d82380a3c4835adca6131728c7ceaf9
+  $fShowRank :: GHC.Show.Show GameTypes.Rank
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ GameTypes.Rank
+                  GameTypes.$fShowRank_$cshowsPrec
+                  GameTypes.$fShowRank_$cshow
+                  GameTypes.$fShowRank_$cshowList -}
+9d82380a3c4835adca6131728c7ceaf9
+  $fShowRank_$cshow :: GameTypes.Rank -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (x :: GameTypes.Rank) ->
+                 case x of wild {
+                   GameTypes.Ace -> GameTypes.$fShowCard26
+                   GameTypes.Two -> GameTypes.$fShowCard24
+                   GameTypes.Three -> GameTypes.$fShowCard22
+                   GameTypes.Four -> GameTypes.$fShowCard20
+                   GameTypes.Five -> GameTypes.$fShowCard18
+                   GameTypes.Six -> GameTypes.$fShowCard16
+                   GameTypes.Seven -> GameTypes.$fShowCard14
+                   GameTypes.Eight -> GameTypes.$fShowCard12
+                   GameTypes.Nine -> GameTypes.$fShowCard10
+                   GameTypes.Ten -> GameTypes.$fShowCard8
+                   GameTypes.Jack -> GameTypes.$fShowCard6
+                   GameTypes.Queen -> GameTypes.$fShowCard4
+                   GameTypes.King -> GameTypes.$fShowCard2 }) -}
+9d82380a3c4835adca6131728c7ceaf9
+  $fShowRank_$cshowList :: [GameTypes.Rank] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [GameTypes.Rank]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ GameTypes.Rank
+                   GameTypes.$w$cshowsPrec1
+                   ls
+                   s) -}
+9d82380a3c4835adca6131728c7ceaf9
+  $fShowRank_$cshowsPrec ::
+    GHC.Types.Int -> GameTypes.Rank -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: GHC.Types.Int)
+                   (w1 :: GameTypes.Rank)
+                   (w2 :: GHC.Base.String) ->
+                 GameTypes.$w$cshowsPrec1 w1 w2) -}
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
   $fShowSuit :: GHC.Show.Show GameTypes.Suit
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -162,27 +298,27 @@ d179543d6a3f2e659119adcda9360bf8
                   GameTypes.$fShowSuit_$cshowsPrec
                   GameTypes.$fShowSuit_$cshow
                   GameTypes.$fShowSuit_$cshowList -}
-d179543d6a3f2e659119adcda9360bf8
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
   $fShowSuit_$cshow :: GameTypes.Suit -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
                 (\ (x :: GameTypes.Suit) ->
                  case x of wild {
-                   GameTypes.Spade -> GameTypes.$fShowCard9
-                   GameTypes.Club -> GameTypes.$fShowCard7
-                   GameTypes.Heart -> GameTypes.$fShowCard5
-                   GameTypes.Diamond -> GameTypes.$fShowCard3 }) -}
-d179543d6a3f2e659119adcda9360bf8
+                   GameTypes.Spade -> GameTypes.$fShowCard34
+                   GameTypes.Club -> GameTypes.$fShowCard32
+                   GameTypes.Heart -> GameTypes.$fShowCard30
+                   GameTypes.Diamond -> GameTypes.$fShowCard28 }) -}
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
   $fShowSuit_$cshowList :: [GameTypes.Suit] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Suit]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__
                    @ GameTypes.Suit
-                   GameTypes.$w$cshowsPrec1
+                   GameTypes.$w$cshowsPrec2
                    ls
                    s) -}
-d179543d6a3f2e659119adcda9360bf8
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
   $fShowSuit_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Suit -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
@@ -190,7 +326,47 @@ d179543d6a3f2e659119adcda9360bf8
                 (\ (w :: GHC.Types.Int)
                    (w1 :: GameTypes.Suit)
                    (w2 :: GHC.Base.String) ->
-                 GameTypes.$w$cshowsPrec1 w1 w2) -}
+                 GameTypes.$w$cshowsPrec2 w1 w2) -}
+87785200ab941ac8b3cf34829253b12a
+  $tc'Ace :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   14928968749433635939##
+                   7361161052082532917##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Ace2
+                   0#
+                   GameTypes.$tc'Ace1) -}
+ec0d0a97afd5d2a31329957117c79b1c
+  $tc'Ace1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m1, Inline: [~] -}
+2ea6879810d38b2c5dce4c88ebec5770
+  $tc'Ace2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Ace3) -}
+80d81007bc2e9b72900bf3838e78b099
+  $tc'Ace3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Ace"#) -}
+10942c6cd0ba6d39b522c18a9ab3a5c4
+  $tc'Card :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   14479917487004225164##
+                   13153402374609671865##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Card2
+                   0#
+                   GameTypes.$tc'Card1) -}
+a46692ccf5741e1f8d6a0ec4af7cad7e
+  $tc'Card1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+d5e8033ce54c8804bf34a64306c09a48
+  $tc'Card2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Card3) -}
+5fbf7e38338d1541fa216bd118af917b
+  $tc'Card3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Card"#) -}
 d9f3022667273d1a0a42ff87e4257d51
   $tc'Club :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -248,26 +424,57 @@ b14207947fe54fd1c53349ee84b8277f
 f8465ba8b95ba43ed65eea5741b8ffa9
   $tc'Diamond2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'Diamond"#) -}
-1e6c90b4061f77c8955a06fd3454eb84
-  $tc'Face :: GHC.Types.TyCon
+1618bea96448a1544c6184a56738c178
+  $tc'Eight :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   8594982996240773815##
-                   2630668138845680138##
+                   6226511691490643682##
+                   6219448275534448102##
                    GameTypes.$trModule
-                   GameTypes.$tc'Face2
+                   GameTypes.$tc'Eight1
                    0#
-                   GameTypes.$tc'Face1) -}
-f69a0dbedd05877ebea06e949bcff650
-  $tc'Face1 :: GHC.Types.KindRep
-  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
-2a2c988b16aa0ba802178ec8f7171ed4
-  $tc'Face2 :: GHC.Types.TrName
+                   GameTypes.$tc'Ace1) -}
+f226ce1416dcbd9d4487513c8cfc8d17
+  $tc'Eight1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Face3) -}
-18cd4074af448ac089b56b8e6375e4af
-  $tc'Face3 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("'Face"#) -}
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Eight2) -}
+6255aa304cd89a067bedcb9c01677510
+  $tc'Eight2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Eight"#) -}
+0d2c153fd08f21fbbbe039962d2ad5a2
+  $tc'Five :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   10075256166212322741##
+                   8824391222163257744##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Five1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+1727fd595e09358daa47de50f32f6d5f
+  $tc'Five1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Five2) -}
+80c4bd07df4d2b81fbb085397a071212
+  $tc'Five2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Five"#) -}
+7bc51bc8623b86f61d1460399293b4d1
+  $tc'Four :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   5183602487638253152##
+                   3135386022227605850##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Four1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+3d2d905e5093e3121125ed98646c3eec
+  $tc'Four1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Four2) -}
+1ff58404775adc594fd4bebf7fd3d9b6
+  $tc'Four2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Four"#) -}
 9097d29f957c5a73646326206427ad4c
   $tc'Game :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -325,6 +532,57 @@ bcb121dc627ccefd4a99342275435f5f
 ea65428951040c1b4ffae9cf0669ef86
   $tc'Heart2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'Heart"#) -}
+4a3ad3cde3915041460a36a8781baebb
+  $tc'Jack :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8138566066700894347##
+                   9499122255486677846##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Jack1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+3aafea18053eec509d0648fc09467bc0
+  $tc'Jack1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Jack2) -}
+41c5c9522d42fbce3669b9ae49bf89e8
+  $tc'Jack2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Jack"#) -}
+6b294f23b2572f1f8c2a76f5fefe935d
+  $tc'King :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12234122283123622384##
+                   499432481995970405##
+                   GameTypes.$trModule
+                   GameTypes.$tc'King1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+a04dd3541d02368ae7229e5a1ccdddf3
+  $tc'King1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'King2) -}
+40a16c0ddd9a94729d14c9b28a662629
+  $tc'King2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'King"#) -}
+7460e8b6041a3de2a8a78081ffba8828
+  $tc'Nine :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2476758121539058511##
+                   8033302138336807258##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Nine1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+d6ff6c4f4d00ad5dda8cd4ac34ce34dd
+  $tc'Nine1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Nine2) -}
+d5c76be534828bc2a46449d65155b09b
+  $tc'Nine2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Nine"#) -}
 aa86469778b700a1e4caa7f2e4817fab
   $tc'Player :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -345,26 +603,57 @@ bae0ff2de232413407ce68023b5669e2
 0e51609a0f6a114a9fcc38d795b8ae1e
   $tc'Player3 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'Player"#) -}
-4254ee78ef5a68a34fa04ae6e86c93e3
-  $tc'Rank :: GHC.Types.TyCon
+ba41269460a0143441d20af66190cfed
+  $tc'Queen :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.TyCon
-                   3406031348737253294##
-                   14154820088027579989##
+                   15624530397541524263##
+                   5020053591065018163##
                    GameTypes.$trModule
-                   GameTypes.$tc'Rank2
+                   GameTypes.$tc'Queen1
                    0#
-                   GameTypes.$tc'Rank1) -}
-084a0c73003de2628b5e6ee97261eeac
-  $tc'Rank1 :: GHC.Types.KindRep
-  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
-f241b1dd8db00483b844e6118e15b2f5
-  $tc'Rank2 :: GHC.Types.TrName
+                   GameTypes.$tc'Ace1) -}
+182aee1ba9837b371eb581518d56618c
+  $tc'Queen1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Rank3) -}
-feeb447257d7296f95dc9bdd8450cdde
-  $tc'Rank3 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("'Rank"#) -}
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Queen2) -}
+f5c3c1b29b865d24e4c0b837b5265c5b
+  $tc'Queen2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Queen"#) -}
+582537ed0219ce70fc5b2ca3350c1915
+  $tc'Seven :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   18103790103033761303##
+                   10317329063599388094##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Seven1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+a32558a8775147e152b5ddc41c3fadf9
+  $tc'Seven1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Seven2) -}
+550ee91544fed1e059d9e7a35557d468
+  $tc'Seven2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Seven"#) -}
+c833100cde7d42ce6718b951e1e398fd
+  $tc'Six :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12659568248759059678##
+                   18329963358683216438##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Six1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+de43bc3df5de8742d4ab78d3a58e0148
+  $tc'Six1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Six2) -}
+49888833df5123763c83f38b25bbe27d
+  $tc'Six2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Six"#) -}
 952860c3c64c109b43f60194ea4958d8
   $tc'Spade :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -382,6 +671,57 @@ feeb447257d7296f95dc9bdd8450cdde
 2099ad831587b68a5f927efbd04976a4
   $tc'Spade2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("'Spade"#) -}
+6ea38ce9b1d817243f2172594f083f54
+  $tc'Ten :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   1975211949556589846##
+                   161948432670661061##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Ten1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+a915afe28b3d2e4f9b51fe6c54b2d696
+  $tc'Ten1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Ten2) -}
+e4474c0a1b34542ec44135f58ecdd946
+  $tc'Ten2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Ten"#) -}
+cc9e8614c624bdd854388062a4d66475
+  $tc'Three :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   234798823897817187##
+                   14843808153195725524##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Three1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+524156237d0adaa4c86f969ce177cf35
+  $tc'Three1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Three2) -}
+6dc23bba64043f97cf2aa97c48999259
+  $tc'Three2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Three"#) -}
+b1e382eede193dd3d9b3298948a71b62
+  $tc'Two :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2706736150502214551##
+                   4781112322173452456##
+                   GameTypes.$trModule
+                   GameTypes.$tc'Two1
+                   0#
+                   GameTypes.$tc'Ace1) -}
+859bc092f02469bc7b8291361a3e1a81
+  $tc'Two1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tc'Two2) -}
+e9b1b13292848abb3feef4ccfb72ed9b
+  $tc'Two2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Two"#) -}
 d75bb65d374e0dcceaf719ba6fe067a5
   $tcCard :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -467,6 +807,23 @@ f952a59b338250cef8db08fcf016c71b
 26f8e8486e27e8b3012e8ac2da0796bc
   $tcPlayer2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Player"#) -}
+8f4d83be20f47cd583e4e219894895ab
+  $tcRank :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   17146630125509447337##
+                   15209787296043159429##
+                   GameTypes.$trModule
+                   GameTypes.$tcRank1
+                   0#
+                   GHC.Types.krep$*) -}
+608098b178f16dc7b2e731c521edd69d
+  $tcRank1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameTypes.$tcRank2) -}
+d6936ef4e2b59593be2e7a144734a11c
+  $tcRank2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Rank"#) -}
 2ffcb9f966f3ef0e49df372c702c878e
   $tcSuit :: GHC.Types.TyCon
   {- HasNoCafRefs, Strictness: m,
@@ -504,83 +861,99 @@ d6bf0422eede51636623e4607273943f
 52c7bcf8cfe9067560c325db9d91ebea
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
+23e78accd9c49323504c84f6d9290f90
+  $w$cshow :: GameTypes.Suit -> GameTypes.Rank -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GameTypes.Suit) (ww1 :: GameTypes.Rank) ->
+                 GHC.CString.unpackAppendCString#
+                   GameTypes.$fShowCard36
+                   (GameTypes.$w$cshowsPrec2
+                      ww
+                      (GHC.Types.:
+                         @ GHC.Types.Char
+                         GHC.Show.showSpace1
+                         (GameTypes.$w$cshowsPrec1
+                            ww1
+                            (GHC.Types.[] @ GHC.Types.Char))))) -}
+addc8f3a10c76e44a3249fad6faa4713
   $w$cshowsPrec ::
     GHC.Prim.Int#
-    -> GameTypes.Card -> GHC.Base.String -> GHC.Base.String
-  {- Arity: 3, Strictness: <S,U><S,1*U><L,U>, Inline: [2],
+    -> GameTypes.Suit
+    -> GameTypes.Rank
+    -> GHC.Base.String
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <S,U><L,1*U><L,1*U><L,U>, Inline: [2],
      Unfolding: (\ (ww :: GHC.Prim.Int#)
-                   (w :: GameTypes.Card)
-                   (w1 :: GHC.Base.String) ->
-                 case w of wild {
-                   GameTypes.Face b1 b2
-                   -> let {
-                        p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
-                        = \ (x :: GHC.Base.String)[OneShot] ->
-                          GHC.CString.unpackAppendCString#
-                            GameTypes.$fShowCard11
-                            (GameTypes.$w$cshowsPrec1
-                               b1
-                               (GHC.Types.:
-                                  @ GHC.Types.Char
-                                  GHC.Show.showSpace1
-                                  (case b2 of ww1 { GHC.Types.C# ww2 ->
-                                   case ww2 of ds {
-                                     DEFAULT
-                                     -> GHC.Types.:
-                                          @ GHC.Types.Char
-                                          GHC.Show.$fShowChar3
-                                          (GHC.Show.$wshowLitChar
-                                             ds
-                                             (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShowChar3 x))
-                                     '\''#
-                                     -> GHC.Base.++ @ GHC.Types.Char GHC.Show.$fShowChar1 x } })))
-                      } in
-                      case GHC.Prim.>=# ww 11# of lwild {
-                        DEFAULT -> p w1
-                        1#
-                        -> GHC.Types.:
+                   (ww1 :: GameTypes.Suit)
+                   (ww2 :: GameTypes.Rank)
+                   (w :: GHC.Base.String) ->
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,1*U> -}
+                   = \ (x :: GHC.Base.String)[OneShot] ->
+                     GHC.CString.unpackAppendCString#
+                       GameTypes.$fShowCard36
+                       (GameTypes.$w$cshowsPrec2
+                          ww1
+                          (GHC.Types.:
                              @ GHC.Types.Char
-                             GHC.Show.$fShow(,)4
-                             (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w1)) }
-                   GameTypes.Rank b1 b2
-                   -> let {
-                        p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
-                        = \ (x :: GHC.Base.String)[OneShot] ->
-                          GHC.CString.unpackAppendCString#
-                            GameTypes.$fShowCard2
-                            (GameTypes.$w$cshowsPrec1
-                               b1
-                               (GHC.Types.:
-                                  @ GHC.Types.Char
-                                  GHC.Show.showSpace1
-                                  (case b2 of ww2 { GHC.Types.I# ww3 ->
-                                   case GHC.Show.$wshowSignedInt 11# ww3 x of ww4 { (#,#) ww5 ww6 ->
-                                   GHC.Types.: @ GHC.Types.Char ww5 ww6 } })))
-                      } in
-                      case GHC.Prim.>=# ww 11# of lwild {
-                        DEFAULT -> p w1
-                        1#
-                        -> GHC.Types.:
-                             @ GHC.Types.Char
-                             GHC.Show.$fShow(,)4
-                             (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w1)) } }) -}
-d179543d6a3f2e659119adcda9360bf8
+                             GHC.Show.showSpace1
+                             (GameTypes.$w$cshowsPrec1 ww2 x)))
+                 } in
+                 case GHC.Prim.>=# ww 11# of lwild {
+                   DEFAULT -> p w
+                   1#
+                   -> GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.$fShow(,)4
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w)) }) -}
+9d82380a3c4835adca6131728c7ceaf9
   $w$cshowsPrec1 ::
+    GameTypes.Rank -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
+     Unfolding: (\ (w :: GameTypes.Rank) (w1 :: GHC.Base.String) ->
+                 case w of wild {
+                   GameTypes.Ace
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard26 w1
+                   GameTypes.Two
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard24 w1
+                   GameTypes.Three
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard22 w1
+                   GameTypes.Four
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard20 w1
+                   GameTypes.Five
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard18 w1
+                   GameTypes.Six
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard16 w1
+                   GameTypes.Seven
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard14 w1
+                   GameTypes.Eight
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard12 w1
+                   GameTypes.Nine
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard10 w1
+                   GameTypes.Ten
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard8 w1
+                   GameTypes.Jack
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard6 w1
+                   GameTypes.Queen
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard4 w1
+                   GameTypes.King
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard2 w1 }) -}
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+  $w$cshowsPrec2 ::
     GameTypes.Suit -> GHC.Base.String -> GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
      Unfolding: (\ (w :: GameTypes.Suit) (w1 :: GHC.Base.String) ->
                  case w of wild {
                    GameTypes.Spade
-                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard9 w1
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard34 w1
                    GameTypes.Club
-                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard7 w1
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard32 w1
                    GameTypes.Heart
-                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard5 w1
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard30 w1
                    GameTypes.Diamond
-                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard3 w1 }) -}
-91818e0b2bc3633143fe4e7921509bdb
-  $w$cshowsPrec2 ::
+                   -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard28 w1 }) -}
+f6152c9b293252fb63c1147a95a74267
+  $w$cshowsPrec3 ::
     GHC.Prim.Int#
     -> [GameTypes.Card] -> GHC.Base.String -> GHC.Base.String
   {- Arity: 3, Strictness: <S,U><L,1*U><L,U>, Inline: [2],
@@ -598,26 +971,43 @@ d179543d6a3f2e659119adcda9360bf8
                           -> GHC.Types.:
                                @ GHC.Types.Char
                                GHC.Show.showList__3
-                               (GameTypes.$w$cshowsPrec
-                                  0#
-                                  x1
-                                  (let {
-                                     lvl45 :: [GHC.Types.Char]
-                                     = GHC.Types.: @ GHC.Types.Char GHC.Show.showList__2 x
-                                   } in
-                                   letrec {
-                                     showl :: [GameTypes.Card] -> GHC.Base.String
-                                       {- Arity: 1, Strictness: <S,1*U> -}
-                                     = \ (ds2 :: [GameTypes.Card]) ->
-                                       case ds2 of wild1 {
-                                         [] -> lvl45
-                                         : y ys
-                                         -> GHC.Types.:
-                                              @ GHC.Types.Char
-                                              GHC.Show.showList__1
-                                              (GameTypes.$w$cshowsPrec 0# y (showl ys)) }
-                                   } in
-                                   showl xs)) })
+                               (case x1 of wild1 { GameTypes.Card b1 b2 ->
+                                GHC.CString.unpackAppendCString#
+                                  GameTypes.$fShowCard36
+                                  (GameTypes.$w$cshowsPrec2
+                                     b1
+                                     (GHC.Types.:
+                                        @ GHC.Types.Char
+                                        GHC.Show.showSpace1
+                                        (GameTypes.$w$cshowsPrec1
+                                           b2
+                                           (let {
+                                              lvl45 :: [GHC.Types.Char]
+                                              = GHC.Types.: @ GHC.Types.Char GHC.Show.showList__2 x
+                                            } in
+                                            letrec {
+                                              showl :: [GameTypes.Card] -> GHC.Base.String
+                                                {- Arity: 1, Strictness: <S,1*U> -}
+                                              = \ (ds2 :: [GameTypes.Card]) ->
+                                                case ds2 of wild2 {
+                                                  [] -> lvl45
+                                                  : y ys
+                                                  -> GHC.Types.:
+                                                       @ GHC.Types.Char
+                                                       GHC.Show.showList__1
+                                                       (case y of wild3 { GameTypes.Card b4 b5 ->
+                                                        GHC.CString.unpackAppendCString#
+                                                          GameTypes.$fShowCard36
+                                                          (GameTypes.$w$cshowsPrec2
+                                                             b4
+                                                             (GHC.Types.:
+                                                                @ GHC.Types.Char
+                                                                GHC.Show.showSpace1
+                                                                (GameTypes.$w$cshowsPrec1
+                                                                   b5
+                                                                   (showl ys)))) }) }
+                                            } in
+                                            showl xs)))) }) })
                  } in
                  case GHC.Prim.>=# ww 11# of lwild {
                    DEFAULT -> p w
@@ -626,26 +1016,41 @@ d179543d6a3f2e659119adcda9360bf8
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w)) }) -}
-62a2e7cd9190fe6cc641ecc7f51b9b2f
-  data Card
-    = Face GameTypes.Suit GHC.Types.Char
-    | Rank GameTypes.Suit GHC.Types.Int
-9ff7091cb03e474ad8f549d77cce9dae
+a8e6ae55fd67c3708fd7e810811aa74c
+  data Card = Card GameTypes.Suit GameTypes.Rank
+96fdc6884b8f6c17d30f907111d27fd4
   data Deck = Deck [GameTypes.Card]
-f78e9d29ffde17b561f0974da523466b
+913fd88a19e385bd68b64c0019d9a499
   data Game = Game GameTypes.Deck [GameTypes.Player]
-0c1c65169d0019e1ced92d30c8c67e16
+0727f1baab0afdb06361898fbc5b5324
   data Hand = Hand [GameTypes.Card]
-8898148c11416d99651b97ce69edf470
+6b01c181fec9436b32925bead98dc2b7
   data Player = Player GameTypes.Hand GameTypes.Score
-2e057349b3b0a7dc1d36ebd92311c46f
-  type Score = GHC.Types.Int
-d179543d6a3f2e659119adcda9360bf8
+9d82380a3c4835adca6131728c7ceaf9
+  data Rank
+    = Ace
+    | Two
+    | Three
+    | Four
+    | Five
+    | Six
+    | Seven
+    | Eight
+    | Nine
+    | Ten
+    | Jack
+    | Queen
+    | King
+aee40ddf141d35912419bc402b0cc0b9
+  type Score = GHC.Integer.Type.Integer
+5c027ad0dfa3cc5f2e1f8cd5b82c6b02
   data Suit = Spade | Club | Heart | Diamond
 instance [safe] GHC.Show.Show [GameTypes.Card]
   = GameTypes.$fShowCard
 instance [safe] GHC.Show.Show [GameTypes.Deck]
   = GameTypes.$fShowDeck
+instance [safe] GHC.Show.Show [GameTypes.Rank]
+  = GameTypes.$fShowRank
 instance [safe] GHC.Show.Show [GameTypes.Suit]
   = GameTypes.$fShowSuit
 trusted: safe
