@@ -18,6 +18,7 @@ makeDeck suits ranks =
           Card s r
 
 deck = makeDeck suits ranks
+game = Game deck (createPlayers 4)
 
 cutDeck :: Int -> Deck -> ([Card], [Card])
 cutDeck index (Deck d) =
@@ -45,3 +46,28 @@ shuffleDeck' count deck = shuffleDeck' (count - 1) (deck >>= shuffle)
 shuffleDeck :: Deck -> IO Deck 
 shuffleDeck = (shuffleDeck' 10000) . shuffle
 
+createPlayers :: Integer -> [Player]
+createPlayers 0 = []
+createPlayers playerCount =
+  createPlayers (playerCount - 1) ++ [Player playerCount (Hand []) 0]
+
+dealCard :: Game -> Id -> Game
+dealCard (Game (Deck deck) players) id = 
+  Game d (go id $ players)
+  where d = Deck $ drop 1 deck
+        c = take 1 deck
+        go i = map (\p@(Player x (Hand h) s) -> if x == i then Player x (Hand $ c ++ h) s else p)
+
+firstHand :: Game -> Game
+firstHand g@(Game _ players) = 
+  go (go g c) c
+  where c = toInteger $ length players
+        go game 0 = game
+        go game count =
+          go (dealCard game count) (count - 1)
+
+initializeGame :: Deck -> Integer -> IO Game
+initializeGame deck playerCount = do
+  d <- (shuffleDeck deck)
+  return $ firstHand (Game d ps)
+  where ps = createPlayers playerCount

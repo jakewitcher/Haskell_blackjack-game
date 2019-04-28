@@ -28,9 +28,13 @@ data Deck = Deck [Card]
           deriving Show
 
 data Hand = Hand [Card]
+          deriving Show
 
 type Score = Integer
+type Id = Integer
 
-data Player = Player Hand Score
+data Player = Player Id Hand Score
+          deriving Show
 
-data Game = Game Deck [Player]
+data Game = Game Deck [Player] 
+          deriving Show
