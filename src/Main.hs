@@ -6,7 +6,9 @@ import GameTypes
 
 main :: IO ()
 main = do
-  putStrLn "blackjack"
+  game <- startGame
+  beginRound game 1
+  return ()
 
 suits = [Spade, Club, Heart, Diamond]
 ranks = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King]
@@ -66,8 +68,71 @@ firstHand g@(Game _ players) =
         go game count =
           go (dealCard game count) (count - 1)
 
-initializeGame :: Deck -> Integer -> IO Game
-initializeGame deck playerCount = do
+scoreCard :: Card -> Integer 
+scoreCard (Card _ rank) =
+  case rank of
+    Ace   -> 1
+    Two   -> 2
+    Three -> 3
+    Four  -> 4
+    Five  -> 5
+    Six   -> 6
+    Seven -> 7
+    Eight -> 8
+    Nine  -> 9
+    Ten   -> 10
+    Jack  -> 10
+    Queen -> 10
+    King  -> 10
+
+scorePlayer :: Player -> Player
+scorePlayer (Player id h@(Hand cards) _) =
+  Player id h s 
+  where s = foldr (\c a -> (+ a) $ scoreCard c) 0 cards
+
+scoreAllPlayers :: Game -> Game 
+scoreAllPlayers (Game deck players) =
+  Game deck (map scorePlayer players)
+
+setupGame :: Deck -> Integer -> IO Game
+setupGame deck playerCount = do
   d <- (shuffleDeck deck)
-  return $ firstHand (Game d ps)
+  return $ (scoreAllPlayers . firstHand) (Game d ps)
   where ps = createPlayers playerCount
+
+startGame :: IO Game
+startGame = do
+  putStrLn "Welcome to BlackJack"
+  putStrLn "How many players?"
+  playerCount <- getLine
+  let x = read playerCount :: Integer
+    in setupGame deck x
+
+showPlayerCards :: Game -> Id -> String
+showPlayerCards (Game _ players) id =
+  show cards
+  where (Player _ (Hand cs) _) = 
+          head $ filter (\(Player i _ _) -> i == id) players
+        cards = foldr (\(Card suit rank) s -> (show rank) ++ " of " ++ (show suit) ++ ", " ++ s) "" cs
+
+
+showPlayerScore :: Game -> Id -> String
+showPlayerScore (Game _ players) id =
+  show score
+  where (Player _ _ score) = 
+          head $ filter (\(Player i _ _) -> i == id) players
+
+beginRound :: Game -> Id -> IO Game 
+beginRound game playerId = do
+  putStrLn "========================="
+  putStrLn $ "Ready player " ++ (show playerId)
+  putStrLn "========================="
+  putStrLn $ "Your current cards are " ++ (showPlayerCards game playerId)
+  putStrLn $ "And your current score is " ++ (showPlayerScore game playerId)
+  putStrLn "What would you like to do --"
+  putStrLn "(H)it or (S)tand?"
+  playerAction <- getLine
+  case playerAction of
+    "H" -> beginRound (scoreAllPlayers $ dealCard game playerId) playerId
+    "S" -> beginRound game (playerId + 1)
+    _   -> beginRound game playerId
