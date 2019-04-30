@@ -1,7 +1,8 @@
 module Main where
 
-import Data.List (transpose)
-import System.Random (randomRIO)  
+import Data.List (transpose,  intercalate)
+import System.Random (randomRIO)
+import System.Exit (exitSuccess)
 import GameTypes
 
 main :: IO ()
@@ -20,17 +21,16 @@ makeDeck suits ranks =
           Card s r
 
 deck = makeDeck suits ranks
-game = Game deck (createPlayers 4)
 
 cutDeck :: Int -> Deck -> ([Card], [Card])
 cutDeck index (Deck d) =
   go $ splitAt index d
-  where go (q@(x:xs), t@(y:ys))
-          | left == right = (q, t)
-          | left > right  = go (xs, x:t)
-          | left < right  = go (y:q, ys)
-          where left = length q 
-                right = length t
+  where go (a@(x:xs), b@(y:ys))
+          | left == right = (a, b)
+          | left > right  = go (xs, x:b)
+          | left < right  = go (y:a, ys)
+          where left = length a
+                right = length b
 
 bridgeDeck :: ([Card], [Card]) -> Deck
 bridgeDeck (a, b) =
@@ -68,27 +68,27 @@ firstHand g@(Game _ players) =
         go game count =
           go (dealCard game count) (count - 1)
 
-scoreCard :: Card -> Integer 
+scoreCard :: Card -> (Integer, Integer)
 scoreCard (Card _ rank) =
   case rank of
-    Ace   -> 1
-    Two   -> 2
-    Three -> 3
-    Four  -> 4
-    Five  -> 5
-    Six   -> 6
-    Seven -> 7
-    Eight -> 8
-    Nine  -> 9
-    Ten   -> 10
-    Jack  -> 10
-    Queen -> 10
-    King  -> 10
+    Ace   -> (1, 11)
+    Two   -> (2, 2)
+    Three -> (3, 3)
+    Four  -> (4, 4)
+    Five  -> (5, 5)
+    Six   -> (6, 6)
+    Seven -> (7, 7)
+    Eight -> (8, 8)
+    Nine  -> (9, 9)
+    _     -> (10, 10)
 
 scorePlayer :: Player -> Player
 scorePlayer (Player id h@(Hand cards) _) =
-  Player id h s 
-  where s = foldr (\c a -> (+ a) $ scoreCard c) 0 cards
+  Player id h s
+  where temp = foldr go 0 cards
+        s = if temp > 21 then foldr go' 0 cards else temp
+        go c a = (+a) (snd $ scoreCard c)
+        go' c a = (+a) (fst $ scoreCard c)
 
 scoreAllPlayers :: Game -> Game 
 scoreAllPlayers (Game deck players) =
@@ -103,18 +103,19 @@ setupGame deck playerCount = do
 startGame :: IO Game
 startGame = do
   putStrLn "Welcome to BlackJack"
-  putStrLn "How many players?"
+  putStrLn "How many players? (Limit: 7)"
   playerCount <- getLine
   let x = read playerCount :: Integer
-    in setupGame deck x
+    in if x > 7 || x < 1
+      then startGame
+      else setupGame deck x
 
 showPlayerCards :: Game -> Id -> String
 showPlayerCards (Game _ players) id =
-  show cards
+  intercalate ", " cards
   where (Player _ (Hand cs) _) = 
           head $ filter (\(Player i _ _) -> i == id) players
-        cards = foldr (\(Card suit rank) s -> (show rank) ++ " of " ++ (show suit) ++ ", " ++ s) "" cs
-
+        cards = foldr (\(Card suit rank) s -> (:s) $ (show rank) ++ " of " ++ (show suit) ++ "s") [] cs
 
 showPlayerScore :: Game -> Id -> String
 showPlayerScore (Game _ players) id =
@@ -123,7 +124,7 @@ showPlayerScore (Game _ players) id =
           head $ filter (\(Player i _ _) -> i == id) players
 
 beginRound :: Game -> Id -> IO Game 
-beginRound game playerId = do
+beginRound game@(Game _ players) playerId = do
   putStrLn "========================="
   putStrLn $ "Ready player " ++ (show playerId)
   putStrLn "========================="
@@ -134,5 +135,28 @@ beginRound game playerId = do
   playerAction <- getLine
   case playerAction of
     "H" -> beginRound (scoreAllPlayers $ dealCard game playerId) playerId
-    "S" -> beginRound game (playerId + 1)
+    "S" -> checkGameStatus game (playerId + 1)
     _   -> beginRound game playerId
+
+checkGameStatus :: Game -> Id -> IO Game
+checkGameStatus game@(Game deck players) playerId =
+  if playerId > (toInteger $ length players) 
+    then endRound game
+    else beginRound game playerId
+
+endRound :: Game -> IO Game
+endRound game = undefined
+
+determineWinner :: Game -> (Id, Score)
+determineWinner (Game _ ((Player i _ s):players)) =
+  foldr go (i, s) players
+  where go (Player id _ score) best =
+          if snd best >= score 
+            then best 
+            else (id, score)
+
+announceWinner :: (Id, Score) -> String
+announceWinner winner =
+  "The winner is Player " ++ (winnerId) ++ " with a score of " ++ (winnerScore) ++ " points!"
+  where winnerId = show $ fst winner
+        winnerScore = show $ snd winner
