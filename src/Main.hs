@@ -123,13 +123,36 @@ showPlayerScore (Game _ players) id =
   where (Player _ _ score) = 
           head $ filter (\(Player i _ _) -> i == id) players
 
-beginRound :: Game -> Id -> IO Game 
+getPlayerScore :: Game -> Id -> Score 
+getPlayerScore (Game _ players) id =
+  score
+  where (Player _ _ score) = 
+          head $ filter (\(Player i _ _) -> i == id) players
+
+beginRound :: Game -> Id -> IO Game
 beginRound game@(Game _ players) playerId = do
   putStrLn "========================="
   putStrLn $ "Ready player " ++ (show playerId)
   putStrLn "========================="
   putStrLn $ "Your current cards are " ++ (showPlayerCards game playerId)
   putStrLn $ "And your current score is " ++ (showPlayerScore game playerId)
+  if (getPlayerScore game playerId) > 21
+    then continueRoundWithNextPlayer game playerId
+    else continueRoundWithCurrentPlayer game playerId
+
+continueRoundWithNextPlayer :: Game -> Id -> IO Game 
+continueRoundWithNextPlayer game id = do 
+  putStrLn "Sorry, you went over 21"
+  checkGameStatus (dropPlayer game id) (id + 1)
+
+dropPlayer :: Game -> Id -> Game 
+dropPlayer (Game deck players) id =
+  Game deck remainingPlayers
+  where remainingPlayers =
+          filter (\(Player i _ _) -> i /= id) players
+
+continueRoundWithCurrentPlayer :: Game -> Id -> IO Game 
+continueRoundWithCurrentPlayer game@(Game _ players) playerId = do
   putStrLn "What would you like to do --"
   putStrLn "(H)it or (S)tand?"
   playerAction <- getLine
