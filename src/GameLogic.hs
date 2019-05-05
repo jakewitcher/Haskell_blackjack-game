@@ -18,9 +18,7 @@ ranks = [Ace .. King]
 makeDeck :: [Suit] -> [Rank] -> Deck
 makeDeck suits ranks =
   Deck $ foldr (\suit cards -> 
-                  map (\rank -> go suit rank) ranks ++ cards) [] suits
-  where go s r =
-          Card s r
+                  map (\rank -> Card suit rank) ranks ++ cards) [] suits
 
 deck = makeDeck suits ranks
 
