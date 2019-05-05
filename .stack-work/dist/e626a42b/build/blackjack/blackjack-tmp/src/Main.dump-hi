@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-05-05 01:28:53.4327317 UTC
+2019-05-05 01:55:36.9452741 UTC
 
 interface main:Main 8064
-  interface hash: ae2912f89eace28a7036458805d060b7
-  ABI hash: 6aa0156f4fe78bae9d529a236d571772
+  interface hash: c8c143081949de5960d045e528956a82
+  ABI hash: 6fcb54811e70b3608402c99c124b17d8
   export-list hash: c24c272897a82c545af3d41fe83301a8
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d99695e32fb9f9a604a24ed84e77d17d
@@ -140,126 +140,43 @@ d026be77cb9ced20e35a61514e0458aa
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
   {- Arity: 4, Strictness: <L,U(U)><L,U><L,U><S,U>, Inline: [2] -}
-cd2e9c76ab4f23117f3f14deb1da5f3f
+d728e6ccc20957d0a1f7f0fc8d1ce18a
   $wcheckGameStatus ::
-    GameTypes.Deck
-    -> [GHC.Maybe.Maybe GameTypes.Player]
-    -> GameTypes.Id
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
-  {- Arity: 4, Strictness: <L,U(U)><S,U><S,U><S,U>, Inline: [2],
-     Unfolding: (\ (ww :: GameTypes.Deck)
-                   (ww1 :: [GHC.Maybe.Maybe GameTypes.Player])
-                   (w :: GameTypes.Id)
-                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+    [GHC.Maybe.Maybe GameTypes.Player]
+    -> GameTypes.Id -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U>, Inline: [2],
+     Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
+                   (w :: GameTypes.Id) ->
                  case GHC.List.$wlenAcc
                         @ (GHC.Maybe.Maybe GameTypes.Player)
-                        ww1
+                        ww
                         0# of ww2 { DEFAULT ->
-                 case GHC.Integer.Type.gtInteger#
+                 case GHC.Integer.Type.ltInteger#
                         w
-                        (GHC.Integer.Type.smallInteger ww2) of wild {
-                   DEFAULT -> Main.$wbeginRound ww ww1 w w1
-                   1#
-                   -> case (GHC.IO.Handle.Text.hPutStr'
-                              GHC.IO.Handle.FD.stdout
-                              (case ww1 of wild1 {
-                                 [] -> case Main.checkGameStatus2 ret_ty GHC.Base.String of {}
-                                 : player players
-                                 -> Main.announceWinner (Main.checkGameStatus_go players) })
-                              GHC.Types.True)
-                             `cast`
-                           (GHC.Types.N:IO[0] <()>_R)
-                             w1 of ds1 { (#,#) ipv ipv1 ->
-                      (# ipv, GameTypes.Game ww ww1 #) } } }) -}
-0f8fb2b9bd77da893cfa649de54c894a
+                        (GHC.Integer.Type.smallInteger ww2) of wild { DEFAULT ->
+                 GHC.Prim.tagToEnum# @ GHC.Types.Bool wild } }) -}
+5784ee59db39f808575dddeb34f10b7f
   $wcheckPlayerScore ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>, Inline: [2],
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [2],
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
                    (w :: GameTypes.Id) ->
-                 case ww of wild {
-                   [] -> GHC.Types.False
-                   : y ys
-                   -> case y of wild1 {
-                        GHC.Maybe.Nothing -> GHC.Types.False
-                        GHC.Maybe.Just ds
-                        -> case ds of wild2 { GameTypes.Player i ds1 s ->
-                           case GHC.Integer.Type.eqInteger# i w of wild3 {
-                             DEFAULT -> GHC.Types.False
-                             1#
-                             -> case GHC.Integer.Type.gtInteger#
-                                       s
-                                       Main.checkPlayerScore1 of wild4 { DEFAULT ->
-                                GHC.Prim.tagToEnum# @ GHC.Types.Bool wild4 } } } } }) -}
-ed258b1585edd1fa81b259f50f3a72ad
+                 case Main.$wgetPlayerScore ww w of wild {
+                   GHC.Maybe.Nothing -> GHC.Types.False
+                   GHC.Maybe.Just x
+                   -> case GHC.Integer.Type.gtInteger#
+                             x
+                             Main.checkPlayerScore1 of wild1 { DEFAULT ->
+                      GHC.Prim.tagToEnum# @ GHC.Types.Bool wild1 } }) -}
+863662c46042dd1b285437afb5dbe789
   $wcontinueRoundWithCurrentPlayer ::
     GameTypes.Deck
     -> [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
-  {- Arity: 4, Strictness: <L,U(U)><L,U><L,U><S,U>, Inline: [2],
-     Unfolding: (\ (ww :: GameTypes.Deck)
-                   (ww1 :: [GHC.Maybe.Maybe GameTypes.Player])
-                   (w :: GameTypes.Id)
-                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 case (GHC.IO.Handle.Text.hPutStr'
-                         GHC.IO.Handle.FD.stdout
-                         Main.continueRoundWithCurrentPlayer6
-                         GHC.Types.True)
-                        `cast`
-                      (GHC.Types.N:IO[0] <()>_R)
-                        w1 of ds1 { (#,#) ipv ipv1 ->
-                 case (GHC.IO.Handle.Text.hPutStr'
-                         GHC.IO.Handle.FD.stdout
-                         Main.continueRoundWithCurrentPlayer4
-                         GHC.Types.True)
-                        `cast`
-                      (GHC.Types.N:IO[0] <()>_R)
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case GHC.IO.Handle.Internals.wantReadableHandle_1
-                        @ GHC.Base.String
-                        GHC.IO.Handle.Text.hGetLine4
-                        GHC.IO.Handle.FD.stdin
-                        GHC.IO.Handle.Text.hGetLine2
-                          `cast`
-                        (<GHC.IO.Handle.Types.Handle__>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
-                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
-                 case ipv5 of wild {
-                   [] -> Main.$wbeginRound ww ww1 w ipv4
-                   : ds ds4
-                   -> case ds of wild1 { GHC.Types.C# ds5 ->
-                      case ds5 of ds6 {
-                        DEFAULT -> Main.$wbeginRound ww ww1 w ipv4
-                        'H'#
-                        -> case ds4 of wild2 {
-                             []
-                             -> case ww of ww2 { GameTypes.Deck ww3 ->
-                                case Main.$wdealCard ww3 ww1 w of ww4 { (#,#) ww5 ww6 ->
-                                Main.$wbeginRound
-                                  ww5
-                                  (GHC.Base.map
-                                     @ (GHC.Maybe.Maybe GameTypes.Player)
-                                     @ (GHC.Maybe.Maybe GameTypes.Player)
-                                     Main.continueRoundWithCurrentPlayer3
-                                     ww6)
-                                  w
-                                  ipv4 } }
-                             : ipv6 ipv7 -> Main.$wbeginRound ww ww1 w ipv4 }
-                        'S'#
-                        -> case ds4 of wild2 {
-                             []
-                             -> Main.$wcheckGameStatus
-                                  ww
-                                  ww1
-                                  (GHC.Integer.Type.plusInteger
-                                     w
-                                     Main.continueRoundWithCurrentPlayer2)
-                                  ipv4
-                             : ipv6 ipv7 -> Main.$wbeginRound ww ww1 w ipv4 } } } } } } }) -}
+  {- Arity: 4, Strictness: <L,U(U)><L,U><L,U><S,U>, Inline: [2] -}
 b918a41946f305e8b1098cc9e37e09d9
   $wdealCard ::
     [GameTypes.Card]
@@ -309,63 +226,15 @@ b918a41946f305e8b1098cc9e37e09d9
                                           $wgo2 ww 1#))
                                       s) } } } })
                       ww1 #)) -}
-13de0242ad460bd304b0cb5ba118ac0e
+981afac3547e802d58f45a15d8e2e52e
   $wdetermineWinner ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
   {- Arity: 1, Strictness: <S,1*U>, Inline: [2],
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player]) ->
                  case ww of wild {
-                   [] -> Main.checkGameStatus2
+                   [] -> Main.continueRoundWithNextPlayer3
                    : player players -> Main.determineWinner_go players }) -}
-37598adaa63b750fc669a094c610c367
-  $wendGame ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 1, Strictness: <S,U>, Inline: [2],
-     Unfolding: (\ (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 case (GHC.IO.Handle.Text.hPutStr'
-                         GHC.IO.Handle.FD.stdout
-                         Main.endGame6
-                         GHC.Types.True)
-                        `cast`
-                      (GHC.Types.N:IO[0] <()>_R)
-                        w of ds1 { (#,#) ipv ipv1 ->
-                 case GHC.IO.Handle.Internals.wantReadableHandle_1
-                        @ GHC.Base.String
-                        GHC.IO.Handle.Text.hGetLine4
-                        GHC.IO.Handle.FD.stdin
-                        GHC.IO.Handle.Text.hGetLine2
-                          `cast`
-                        (<GHC.IO.Handle.Types.Handle__>_R
-                         ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R))
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 case ipv3 of wild {
-                   []
-                   -> case Main.endGame5
-                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                      of {}
-                   : ds ds3
-                   -> case ds of wild1 { GHC.Types.C# ds4 ->
-                      case ds4 of ds5 {
-                        DEFAULT
-                        -> case Main.endGame5
-                           ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                           of {}
-                        'N'#
-                        -> case ds3 of wild2 {
-                             [] -> Main.endGame4 ipv2
-                             : ipv4 ipv5
-                             -> case Main.endGame5
-                                ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                                of {} }
-                        'Y'#
-                        -> case ds3 of wild2 {
-                             [] -> Main.endGame2 ipv2
-                             : ipv4 ipv5
-                             -> case Main.endGame5
-                                ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-                                of {} } } } } } }) -}
 78161c185e8ebbcb19261315ee041172
   $wfirstHand ::
     GameTypes.Deck
@@ -383,23 +252,29 @@ b918a41946f305e8b1098cc9e37e09d9
                  } in
                  case Main.$wgo1 ww ww1 c of ww3 { (#,#) ww4 ww5 ->
                  Main.$wgo1 ww4 ww5 c } }) -}
-ca6a6392083d4eba118f71924b05fe1c
+69a3de07b52ccdfe06526b666378cac6
   $wgetPlayerScore ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Maybe.Maybe GameTypes.Score
-  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>, Inline: [2],
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U>, Inline: [2],
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
                    (w :: GameTypes.Id) ->
-                 case ww of wild {
-                   [] -> GHC.Maybe.Nothing @ GameTypes.Score
-                   : y ys
-                   -> case y of wild1 {
-                        GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Score
-                        GHC.Maybe.Just ds
-                        -> case ds of wild2 { GameTypes.Player i ds1 s ->
-                           case GHC.Integer.Type.eqInteger# i w of wild3 {
-                             DEFAULT -> GHC.Maybe.Nothing @ GameTypes.Score
-                             1# -> GHC.Maybe.Just @ GameTypes.Score s } } } }) -}
+                 letrec {
+                   go :: [GHC.Maybe.Maybe GameTypes.Player]
+                         -> GHC.Maybe.Maybe GameTypes.Score
+                     <join 1> {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
+                     case ds of wild {
+                       [] -> GHC.Maybe.Nothing @ GameTypes.Score
+                       : y ys
+                       -> case y of wild1 {
+                            GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Score
+                            GHC.Maybe.Just ds1
+                            -> case ds1 of wild2 { GameTypes.Player i ds2 s ->
+                               case GHC.Integer.Type.eqInteger# i w of wild3 {
+                                 DEFAULT -> go ys 1# -> GHC.Maybe.Just @ GameTypes.Score s } } } }
+                 } in
+                 go ww) -}
 8d02bb50ae4b1e37832cbd89a6d6addd
   $wgo ::
     [GameTypes.Card]
@@ -566,7 +441,7 @@ cd46e1e74ee86a6e957b7b0c0f0c686c
   $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
      Inline: [2] -}
-e10c999369956cf9211a028b0af44b16
+2a5dbffd0f96c93376e888e0c6d012f6
   announceWinner ::
     GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score) -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
@@ -604,16 +479,19 @@ c071196eb35bbe54e6a437756dbe1c3d
 11f7bc56e68d964c799bbd6b34d856f8
   announceWinner3 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: (" with a score of "#) -}
-6e0efa747cb912c9e69aead4a7a67ab3
+a07202c65f61dbdad2b05daefd956093
   announceWinner4 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("The winner is Player "#) -}
-141ed304bc6480c6ae8ae1abb7c2a1c4
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \The winner is Player "#) -}
+2823b3605bcfcfe67fe3b7a53df1e476
   announceWinner5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# Main.announceWinner6) -}
-12883593af7717b7858ec107f4b63267
+dc5721cc3c82957b384690f417ca7528
   announceWinner6 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("I'm sorry, I guess you are all losers"#) -}
+     Unfolding: ("\n\
+                 \I'm sorry, I guess you are all losers"#) -}
 8e099f681a8b4bce5cb2673f20c9d8f7
   beginRound ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
@@ -658,42 +536,18 @@ e9ddfed182aad033de8e7c339dcbc863
 539cb4b1260c3811b5eb4defe5873ad0
   bridgeDeck_go :: [[GameTypes.Card]] -> [GameTypes.Card]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-cbbbc8d4d77d391b4dfd3efd6c14055d
-  checkGameStatus ::
-    GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
-  {- Arity: 3, Strictness: <S(LS),1*U(U(U),U)><S,U><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Main.checkGameStatus1
-                  `cast`
-                (<GameTypes.Game>_R
-                 ->_R <GameTypes.Id>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-a7594b37370d0bceb39d623b8b0cc94c
-  checkGameStatus1 ::
-    GameTypes.Game
-    -> GameTypes.Id
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
-  {- Arity: 3, Strictness: <S(LS),1*U(U(U),U)><S,U><S,U>,
+292535635fca7e23ee01792b5e54f90a
+  checkGameStatus :: GameTypes.Game -> GameTypes.Id -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><S,U>,
      Inline: [2],
-     Unfolding: InlineRule (3, True, False)
-                (\ (w :: GameTypes.Game)
-                   (w1 :: GameTypes.Id)
-                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GameTypes.Game) (w1 :: GameTypes.Id) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
-                 Main.$wcheckGameStatus ww1 ww2 w1 w2 }) -}
-66021606b5631da8fac7d6089be70f19
-  checkGameStatus2 :: GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
-  {- Strictness: x -}
-30a59cc6d21debaf514fff2adb25915a
-  checkGameStatus_go ::
-    [GHC.Maybe.Maybe GameTypes.Player]
-    -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
-  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-7bdca29b904c695fedb4b4e799ebd50e
+                 Main.$wcheckGameStatus ww2 w1 }) -}
+6365577e3240d89e863811df9d9d92e1
   checkPlayerScore ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.Bool
-  {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><L,1*U>,
+  {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><L,U>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: GameTypes.Game) (w1 :: GameTypes.Id) ->
@@ -702,7 +556,7 @@ a7594b37370d0bceb39d623b8b0cc94c
 7777e971573710c38b2a02ddacb6294c
   checkPlayerScore1 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (21) -}
-ee627b0f710b47d72ecf0b32fdb7d629
+9e4486e167164cc088c3f7d66dd9fffc
   continueRoundWithCurrentPlayer ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
   {- Arity: 3, Strictness: <S,1*U(U(U),U)><L,U><S,U>,
@@ -712,7 +566,7 @@ ee627b0f710b47d72ecf0b32fdb7d629
                 (<GameTypes.Game>_R
                  ->_R <GameTypes.Id>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-a2284bbcced8de91649f11ed1be749ee
+4eaa598da476250d608e54dab6e52c44
   continueRoundWithCurrentPlayer1 ::
     GameTypes.Game
     -> GameTypes.Id
@@ -725,95 +579,118 @@ a2284bbcced8de91649f11ed1be749ee
                    (w2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
                  Main.$wcontinueRoundWithCurrentPlayer ww1 ww2 w1 w2 }) -}
-2b37268fd0abe6f2218172c8e753c8f8
-  continueRoundWithCurrentPlayer2 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (1) -}
-f1224ec39c273b078793217827fc4955
-  continueRoundWithCurrentPlayer3 ::
-    GHC.Maybe.Maybe GameTypes.Player
-    -> GHC.Maybe.Maybe GameTypes.Player
-  {- Arity: 1, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (ds1 :: GHC.Maybe.Maybe GameTypes.Player) ->
-                 case ds1 of wild {
-                   GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Player
-                   GHC.Maybe.Just a1
-                   -> GHC.Maybe.Just @ GameTypes.Player (Main.scorePlayer a1) }) -}
-0b31ec92e07e2a6e09e5731172ebf0a7
-  continueRoundWithCurrentPlayer4 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString#
-                   Main.continueRoundWithCurrentPlayer5) -}
-652ff9243add849d27059d59941ed229
-  continueRoundWithCurrentPlayer5 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("(H)it or (S)tand?"#) -}
-36441a4c2fd0b7949bd1280414992071
-  continueRoundWithCurrentPlayer6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString#
-                   Main.continueRoundWithCurrentPlayer7) -}
-858531662e3d5e047b0ffb90d1f70fb4
-  continueRoundWithCurrentPlayer7 :: GHC.Prim.Addr#
-  {- HasNoCafRefs, Unfolding: ("What would you like to do --"#) -}
-56a558371d5170e91712a2ee69e511b2
+74f0be3984ac2fb3e8f64c5f1959caff
   continueRoundWithNextPlayer ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
-  {- Arity: 3, Strictness: <L,1*U(U(U),1*U)><L,U><S,U>,
+  {- Arity: 3, Strictness: <L,1*U(U(U),U)><L,U><S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.continueRoundWithNextPlayer1
                   `cast`
                 (<GameTypes.Game>_R
                  ->_R <GameTypes.Id>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-1d3ae3e0f1d29c26b1c064d336e7f5b5
+67c8c5ddd0a0dcdbcb2d68e66a4070c4
   continueRoundWithNextPlayer1 ::
     GameTypes.Game
     -> GameTypes.Id
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
-  {- Arity: 3, Strictness: <L,1*U(U(U),1*U)><L,U><S,U>,
+  {- Arity: 3, Strictness: <L,1*U(U(U),U)><L,U><S,U>,
      Unfolding: (\ (game :: GameTypes.Game)
                    (id :: GameTypes.Id)
                    (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  case (GHC.IO.Handle.Text.hPutStr'
                          GHC.IO.Handle.FD.stdout
-                         Main.continueRoundWithNextPlayer2
+                         Main.continueRoundWithNextPlayer4
                          GHC.Types.True)
                         `cast`
                       (GHC.Types.N:IO[0] <()>_R)
                         s of ds1 { (#,#) ipv ipv1 ->
                  case game of ww { GameTypes.Game ww1 ww2 ->
-                 letrec {
-                   go :: [GHC.Maybe.Maybe GameTypes.Player]
-                         -> [GHC.Maybe.Maybe GameTypes.Player]
-                     {- Arity: 1, Strictness: <S,1*U> -}
-                   = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
-                     case ds of wild {
-                       [] -> GHC.Types.[] @ (GHC.Maybe.Maybe GameTypes.Player)
-                       : y ys
-                       -> GHC.Types.:
-                            @ (GHC.Maybe.Maybe GameTypes.Player)
-                            (case y of wild1 {
-                               GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Player
-                               GHC.Maybe.Just p
-                               -> case p of wild2 { GameTypes.Player i ds2 ds3 ->
-                                  case GHC.Integer.Type.eqInteger# i id of wild3 {
-                                    DEFAULT -> wild1
-                                    1# -> GHC.Maybe.Nothing @ GameTypes.Player } } })
-                            (go ys) }
-                 } in
-                 Main.$wcheckGameStatus
-                   ww1
-                   (go ww2)
-                   (GHC.Integer.Type.plusInteger
-                      id
-                      Main.continueRoundWithCurrentPlayer2)
-                   ipv } }) -}
-46710fcbd9683e607321cb9f8dbc1f1d
-  continueRoundWithNextPlayer2 :: [GHC.Types.Char]
+                 case Main.$wcheckGameStatus ww2 id of wild {
+                   GHC.Types.False
+                   -> let {
+                        game1 :: [GHC.Maybe.Maybe GameTypes.Player]
+                        = letrec {
+                            go :: [GHC.Maybe.Maybe GameTypes.Player]
+                                  -> [GHC.Maybe.Maybe GameTypes.Player]
+                              {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
+                              case ds of wild1 {
+                                [] -> GHC.Types.[] @ (GHC.Maybe.Maybe GameTypes.Player)
+                                : y ys
+                                -> GHC.Types.:
+                                     @ (GHC.Maybe.Maybe GameTypes.Player)
+                                     (case y of wild2 {
+                                        GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Player
+                                        GHC.Maybe.Just p
+                                        -> case p of wild3 { GameTypes.Player i ds2 ds3 ->
+                                           case GHC.Integer.Type.eqInteger# i id of wild4 {
+                                             DEFAULT -> wild2
+                                             1# -> GHC.Maybe.Nothing @ GameTypes.Player } } })
+                                     (go ys) }
+                          } in
+                          go ww2
+                      } in
+                      case (GHC.IO.Handle.Text.hPutStr'
+                              GHC.IO.Handle.FD.stdout
+                              (case game1 of wild1 {
+                                 []
+                                 -> case Main.continueRoundWithNextPlayer3
+                                    ret_ty GHC.Base.String
+                                    of {}
+                                 : player players
+                                 -> Main.announceWinner
+                                      (Main.continueRoundWithNextPlayer_go players) })
+                              GHC.Types.True)
+                             `cast`
+                           (GHC.Types.N:IO[0] <()>_R)
+                             ipv of ds2 { (#,#) ipv2 ipv3 ->
+                      (# ipv2, GameTypes.Game ww1 game1 #) }
+                   GHC.Types.True
+                   -> Main.$wbeginRound
+                        ww1
+                        (letrec {
+                           go :: [GHC.Maybe.Maybe GameTypes.Player]
+                                 -> [GHC.Maybe.Maybe GameTypes.Player]
+                             {- Arity: 1, Strictness: <S,1*U> -}
+                           = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
+                             case ds of wild1 {
+                               [] -> GHC.Types.[] @ (GHC.Maybe.Maybe GameTypes.Player)
+                               : y ys
+                               -> GHC.Types.:
+                                    @ (GHC.Maybe.Maybe GameTypes.Player)
+                                    (case y of wild2 {
+                                       GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Player
+                                       GHC.Maybe.Just p
+                                       -> case p of wild3 { GameTypes.Player i ds2 ds3 ->
+                                          case GHC.Integer.Type.eqInteger# i id of wild4 {
+                                            DEFAULT -> wild2
+                                            1# -> GHC.Maybe.Nothing @ GameTypes.Player } } })
+                                    (go ys) }
+                         } in
+                         go ww2)
+                        (GHC.Integer.Type.plusInteger id Main.continueRoundWithNextPlayer2)
+                        ipv } } }) -}
+310f8fc5a38d96b1d6127571df866a96
+  continueRoundWithNextPlayer2 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (1) -}
+a85976e22b50eecaae3e440451d64daa
+  continueRoundWithNextPlayer3 ::
+    GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
+  {- Strictness: x -}
+247c149de22a75fc80f3ee0c5ff1ea5f
+  continueRoundWithNextPlayer4 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#
-                   Main.continueRoundWithNextPlayer3) -}
-f4151ca83b8b8ad2c0ad81bb3d48a2cb
-  continueRoundWithNextPlayer3 :: GHC.Prim.Addr#
+                   Main.continueRoundWithNextPlayer5) -}
+8392855110b818406ef60274b3e13d15
+  continueRoundWithNextPlayer5 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Sorry, you went over 21"#) -}
+d36f51d379bc24ac50a7a025ec6600a7
+  continueRoundWithNextPlayer_go ::
+    [GHC.Maybe.Maybe GameTypes.Player]
+    -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
 4c525a56583ef35594c05d8d20b8e9bb
   createPlayers ::
     GHC.Integer.Type.Integer -> [GHC.Maybe.Maybe GameTypes.Player]
@@ -857,7 +734,7 @@ c4adf2d35a41d1cac39c9b7535e0b42a
                         Main.suits
                         Main.ranks of ww { Unit# ww1 ->
                  GameTypes.Deck ww1 }) -}
-77e48ab09b20666057dbffc26e349baf
+04e706709f737cb7c4bd61e9c6222331
   determineWinner ::
     GameTypes.Game -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
   {- Arity: 1, Strictness: <S(LS),1*U(A,1*U)>, Inline: [2],
@@ -902,64 +779,27 @@ d34e9ca03bead185bf37723446d3c7bd
                                     1# -> GHC.Maybe.Nothing @ GameTypes.Player } } }))
                          n
                          ww2)) }) -}
-917c340ee5166dc03172bc61a8e690f2
-  endGame :: GHC.Types.IO GameTypes.Game -> GHC.Types.IO ()
-  {- Arity: 2, Strictness: <L,A><S,U>,
-     Unfolding: InlineRule (0, True, True)
-                Main.endGame1
-                  `cast`
-                (<GHC.Types.IO GameTypes.Game>_R
-                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-6cd425619ad31d9c91384e1ded085d50
-  endGame1 ::
-    GHC.Types.IO GameTypes.Game
-    -> GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
-  {- Arity: 2, Strictness: <L,A><S,U>, Inline: [2],
-     Unfolding: InlineRule (2, True, True)
-                (\ (w :: GHC.Types.IO GameTypes.Game)
-                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 Main.$wendGame w1) -}
-0f6ea1c11cf388856ab68f9f6c59e83f
-  endGame2 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+a5a0399fca57cf897a9497cb9e35ad06
+  endGame :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 case Main.endGame3 s of ds1 { (#,#) ipv ipv1 ->
-                 case ipv1 of ww { GameTypes.Game ww1 ww2 ->
-                 case Main.$wbeginRound
-                        ww1
-                        ww2
-                        Main.continueRoundWithCurrentPlayer2
-                        ipv of ds2 { (#,#) ipv2 ipv3 ->
-                 (# ipv2, GHC.Tuple.() #) } } }) -}
-560c2bf23cc508b7d2b1c17ea0a69158
-  endGame3 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
-  {- Arity: 1, Strictness: <S,U> -}
-89a63fc72da54db12cc52f3b6a21a2f5
-  endGame4 ::
+     Unfolding: InlineRule (0, True, True)
+                Main.endGame1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+faa185e9ceb47e165febe949c8b1b909
+  endGame1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-adceda436a94a62dbe28bb3d278d2ce2
-  endGame5 :: GHC.Types.IO ()
-  {- Strictness: x -}
-e383d64923ce3d7e6da9d817951abbdd
-  endGame6 :: [GHC.Types.Char]
-  {- Unfolding: (GHC.CString.unpackCString# Main.endGame7) -}
-0e537dee12cbcfc7299d770111516f3c
-  endGame7 :: GHC.Prim.Addr#
-  {- HasNoCafRefs,
-     Unfolding: ("Would you like to play again? (Y) (N)"#) -}
-8f02615f614757167a3b12d173c1d8c0
+50bcabd8fe760611ef6d6459348dec3f
   endProgram :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                Main.endGame4 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-49491a07074cac70bbd7d68199323751
+                Main.endProgram1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+677beddd0c2e09d2f6a575cad25a2f52
+  endProgram1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U> -}
+ddda8d253814e4d1be427b2c76ea610f
   endRound :: GameTypes.Game -> GHC.Types.IO GameTypes.Game
   {- Arity: 2, Strictness: <L,U(U,U)><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -967,7 +807,7 @@ e383d64923ce3d7e6da9d817951abbdd
                   `cast`
                 (<GameTypes.Game>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-eb43e489845c81ffc93e399755f5d519
+df956be3c496a59b38666b5a34108ff6
   endRound1 ::
     GameTypes.Game
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -979,7 +819,10 @@ eb43e489845c81ffc93e399755f5d519
                          GHC.IO.Handle.FD.stdout
                          (case game of wild { GameTypes.Game ds ds1 ->
                           case ds1 of wild1 {
-                            [] -> case Main.checkGameStatus2 ret_ty GHC.Base.String of {}
+                            []
+                            -> case Main.continueRoundWithNextPlayer3
+                               ret_ty GHC.Base.String
+                               of {}
                             : player players
                             -> Main.announceWinner (Main.determineWinner_go players) } })
                          GHC.Types.True)
@@ -995,28 +838,48 @@ eb43e489845c81ffc93e399755f5d519
                  case w of ww { GameTypes.Game ww1 ww2 ->
                  case Main.$wfirstHand ww1 ww2 of ww3 { (#,#) ww4 ww5 ->
                  GameTypes.Game ww4 ww5 } }) -}
-74be7c0feaa1fbb5db9a7773e254072d
+76eb2ae076c718fdc4b5f8d58be5d9ba
   getPlayerScore ::
     GameTypes.Game -> GameTypes.Id -> GHC.Maybe.Maybe GameTypes.Score
-  {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><L,1*U>,
+  {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><L,U>,
      Inline: [2],
      Unfolding: InlineRule (2, True, False)
                 (\ (w :: GameTypes.Game) (w1 :: GameTypes.Id) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
                  Main.$wgetPlayerScore ww2 w1 }) -}
-3f0de3657c6fd2859d81577434bf46a8
+bf166be01db2652e16cd2697b60c1f85
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                Main.endGame2 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-95b63a60a4fde0e411d267f078cbaa91
+                Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+5146785106e7e3cf0371cc2cb959f2b0
   main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Main.main2 s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of ww { GameTypes.Game ww1 ww2 ->
+                 case Main.$wbeginRound
+                        ww1
+                        ww2
+                        Main.continueRoundWithNextPlayer2
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case Main.endGame1 ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 (# ipv4, GHC.Tuple.() #) } } } }) -}
+2f5c8733e4668ef43695e350a815c832
+  main2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
+  {- Arity: 1, Strictness: <S,U> -}
+a162f7266be01e3136675019955cfe2a
+  main3 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1,
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
-                   Main.endGame2 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+                   Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
 6a770963b78cbc4b2eb57d8025e6d1a2
   makeDeck :: [GameTypes.Suit] -> [GameTypes.Rank] -> GameTypes.Deck
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><L,U>m, Inline: [2],
@@ -1115,7 +978,7 @@ c13c82e7ea8884807cfa8f6cad372c61
                    @ GameTypes.Rank
                    GameTypes.Ten
                    Main.ranks10) -}
-daacc58c3d9040df8e92cd75deffe250
+1332e063d98d08050959bc9abd252887
   scoreAllPlayers :: GameTypes.Game -> GameTypes.Game
   {- Arity: 1, Strictness: <S,1*U(U,1*U)>m,
      Unfolding: InlineRule (1, True, False)
@@ -1136,10 +999,21 @@ daacc58c3d9040df8e92cd75deffe250
                             @ b1
                             @ (GHC.Maybe.Maybe GameTypes.Player)
                             c
-                            Main.continueRoundWithCurrentPlayer3)
+                            Main.scoreAllPlayers1)
                          n
                          players)) }) -}
-3deb8ffd4d29570e6d172a368d93951a
+eab115f45bc4058f911f251a1628e36d
+  scoreAllPlayers1 ::
+    GHC.Maybe.Maybe GameTypes.Player
+    -> GHC.Maybe.Maybe GameTypes.Player
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds1 :: GHC.Maybe.Maybe GameTypes.Player) ->
+                 case ds1 of wild {
+                   GHC.Maybe.Nothing -> GHC.Maybe.Nothing @ GameTypes.Player
+                   GHC.Maybe.Just a1
+                   -> GHC.Maybe.Just @ GameTypes.Player (Main.scorePlayer a1) }) -}
+bc2b35589d1e45047fed95fb4132840b
   scoreCard ::
     GameTypes.Card
     -> (GHC.Integer.Type.Integer, GHC.Integer.Type.Integer)
@@ -1151,7 +1025,7 @@ daacc58c3d9040df8e92cd75deffe250
                  case ww2 of wild {
                    DEFAULT -> (Main.scoreCard10, Main.scoreCard10)
                    GameTypes.Ace
-                   -> (Main.continueRoundWithCurrentPlayer2, Main.scoreCard9)
+                   -> (Main.continueRoundWithNextPlayer2, Main.scoreCard9)
                    GameTypes.Two -> (Main.scoreCard8, Main.scoreCard8)
                    GameTypes.Three -> (Main.scoreCard7, Main.scoreCard7)
                    GameTypes.Four -> (Main.scoreCard6, Main.scoreCard6)
@@ -1213,7 +1087,7 @@ d99f8522cefdbc5a934b9d216c95aaee
 9ad6e85de7834aeb6e6e9da2743d2bb2
   scorePlayer_go1 :: [GameTypes.Card] -> GHC.Integer.Type.Integer
   {- Arity: 1, Strictness: <S,1*U> -}
-c1da9185c33056c68392cfe7fb39c940
+46f8f4d9f9fb4fdd866947d51b0eaa38
   setupGame ::
     GameTypes.Deck
     -> GHC.Integer.Type.Integer -> GHC.Types.IO GameTypes.Game
@@ -1224,7 +1098,7 @@ c1da9185c33056c68392cfe7fb39c940
                 (<GameTypes.Deck>_R
                  ->_R <GHC.Integer.Type.Integer>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-21b4e1bf839fce8d8074aea618a9e47c
+91891f61b46cafbde1e6501ab6eb28ac
   setupGame1 ::
     GameTypes.Deck
     -> GHC.Integer.Type.Integer
@@ -1251,7 +1125,7 @@ c1da9185c33056c68392cfe7fb39c940
                       (GHC.Base.map
                          @ (GHC.Maybe.Maybe GameTypes.Player)
                          @ (GHC.Maybe.Maybe GameTypes.Player)
-                         Main.continueRoundWithCurrentPlayer3
+                         Main.scoreAllPlayers1
                          ww2) } #) }) -}
 4d0ab67ab50d810232e27f1b810fa19e
   setupGame2 ::
@@ -1320,13 +1194,11 @@ b3133cd6d996564769f768cd4ea9f391
 9a3bb766e0ed07d5aa8a1653d8cba6f0
   shuffleDeck1 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 10000#) -}
-a8203a083b7d220f0b0e10c0c677b82a
+72e5a0e871efa0e3db5bfa3b60a23d65
   startGame :: GHC.Types.IO GameTypes.Game
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
-                Main.endGame3
-                  `cast`
-                (Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
+                Main.main2 `cast` (Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
 7a03d3b76cc3421e5fe4a4873845ec9a
   suits :: [GameTypes.Suit]
   {- HasNoCafRefs, Strictness: m2,

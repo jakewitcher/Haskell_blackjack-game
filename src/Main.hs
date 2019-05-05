@@ -9,6 +9,7 @@ main :: IO ()
 main = do
   game <- startGame
   beginRound game 1
+  endGame
   return ()
 
 suits = [Spade, Club, Heart, Diamond]
@@ -16,7 +17,8 @@ ranks = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen,
 
 makeDeck :: [Suit] -> [Rank] -> Deck
 makeDeck suits ranks =
-  Deck $ foldr (\suit cards -> map (\rank -> go suit rank) ranks ++ cards) [] suits
+  Deck $ foldr (\suit cards -> 
+                  map (\rank -> go suit rank) ranks ++ cards) [] suits
   where go s r =
           Card s r
 
@@ -155,17 +157,19 @@ getPlayerScore (Game _ players) id =
                     Just (Player i _ s) -> 
                       if i == id 
                         then Just s
-                        else Nothing
+                        else r
                     Nothing -> Nothing
                   ) Nothing
 
 beginRound :: Game -> Id -> IO Game
 beginRound game@(Game _ players) playerId = do
+  putStrLn "\n"
   putStrLn "========================="
-  putStrLn $ "Ready player " ++ (show playerId)
+  putStrLn $ "Player " ++ (show playerId)
   putStrLn "========================="
   putStrLn $ "Your current cards are " ++ (showPlayerCards game playerId)
   putStrLn $ "And your current score is " ++ (showPlayerScore game playerId)
+  putStrLn "\n"
   if checkPlayerScore game playerId
     then continueRoundWithNextPlayer game playerId
     else continueRoundWithCurrentPlayer game playerId
@@ -180,7 +184,9 @@ checkPlayerScore game id =
 continueRoundWithNextPlayer :: Game -> Id -> IO Game 
 continueRoundWithNextPlayer game id = do 
   putStrLn "Sorry, you went over 21"
-  checkGameStatus (dropPlayer game id) (id + 1)
+  if checkGameStatus game id
+    then beginRound (dropPlayer game id) (id + 1)
+    else endRound (dropPlayer game id)
 
 dropPlayer :: Game -> Id -> Game 
 dropPlayer (Game deck players) id =
@@ -202,22 +208,22 @@ continueRoundWithCurrentPlayer game@(Game _ players) playerId = do
   playerAction <- getLine
   case playerAction of
     "H" -> beginRound (scoreAllPlayers $ dealCard game playerId) playerId
-    "S" -> checkGameStatus game (playerId + 1)
+    "S" -> if checkGameStatus game playerId
+            then beginRound game (playerId + 1) 
+            else endRound game
     _   -> beginRound game playerId
 
-checkGameStatus :: Game -> Id -> IO Game
+checkGameStatus :: Game -> Id -> Bool
 checkGameStatus game@(Game deck players) playerId =
-  if playerId > (toInteger $ length players) 
-    then endRound game
-    else beginRound game playerId
+  playerId < (toInteger $ length players) 
 
 endRound :: Game -> IO Game
 endRound game = do
   putStrLn $ (announceWinner . determineWinner) game
   return game
 
-endGame :: IO Game -> IO ()
-endGame game = do
+endGame :: IO ()
+endGame = do
   putStrLn "Would you like to play again? (Y) (N)"
   response <- getLine
   case response of
@@ -247,5 +253,5 @@ determineWinner (Game _ (player:players)) =
 announceWinner :: Maybe (Id, Score) -> String
 announceWinner m =
   case m of
-    Just (id, score) -> "The winner is Player " ++ (show id) ++ " with a score of " ++ (show score) ++ " points!"
-    Nothing -> "I'm sorry, I guess you are all losers"
+    Just (id, score) -> "\nThe winner is Player " ++ (show id) ++ " with a score of " ++ (show score) ++ " points!"
+    Nothing -> "\nI'm sorry, I guess you are all losers"
