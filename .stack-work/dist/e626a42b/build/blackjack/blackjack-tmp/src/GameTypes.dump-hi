@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-05-05 01:28:52.0844499 UTC
+2019-05-05 03:10:01.2887029 UTC
 
 interface main:GameTypes 8064
-  interface hash: 4dfb09765751929e7bd8061ef00e791b
-  ABI hash: 3f6d9af0e75c13797764bd61b26d7233
+  interface hash: 00f4a32feaa7672416ca8a32ae421c6b
+  ABI hash: b7d560a7947944d08410c28da6bb84e6
   export-list hash: d0cfcd50ba0ec194499f629b661e84f4
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c81183b4f3dbe34d2e7de0e678a2e9cc
@@ -34,11 +34,407 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:GHC.Generics
                          base-4.12.0.0:GHC.IO.Exception
 import  -/  base-4.12.0.0:GHC.Base 954f4c258d193fab7048a63bfeb56dcf
+import  -/  base-4.12.0.0:GHC.Enum b48c8c8d2681aecfb61368272d07740d
+import  -/  base-4.12.0.0:GHC.Err 3a680f55541fe399f95f794018fc3593
+import  -/  base-4.12.0.0:GHC.Num 009f4fca9200daff9e3ffbe2d7676a2f
 import  -/  base-4.12.0.0:GHC.Show 48dce8b8129312101170e57c24f3ecbd
 import  -/  base-4.12.0.0:Prelude aea9afd24db8aed3563d7d850ea453c0
 import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
 import  -/  integer-gmp-1.0.2.0:GHC.Integer.Type 34234e515bc4cbda6d7cda923884fd3f
-a8e6ae55fd67c3708fd7e810811aa74c
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank :: GHC.Enum.Enum GameTypes.Rank
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ GameTypes.Rank
+                  GameTypes.$fEnumRank_$csucc
+                  GameTypes.$fEnumRank_$cpred
+                  GameTypes.$fEnumRank_$ctoEnum
+                  GameTypes.$fEnumRank_$cfromEnum
+                  GameTypes.$fEnumRank_$cenumFrom
+                  GameTypes.$fEnumRank_$cenumFromThen
+                  GameTypes.$fEnumRank_$cenumFromTo
+                  GameTypes.$fEnumRank_$cenumFromThenTo -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank1 :: GameTypes.Rank
+  {- Strictness: x -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank2 :: GameTypes.Rank
+  {- Strictness: x -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cenumFrom :: GameTypes.Rank -> [GameTypes.Rank]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,U>,
+     Unfolding: (\ (a :: GameTypes.Rank) ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank a of a# { DEFAULT ->
+                 case GHC.Prim.># a# 12# of lwild {
+                   DEFAULT -> GameTypes.$fEnumRank_go a#
+                   1# -> GHC.Types.[] @ GameTypes.Rank } }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cenumFromThen ::
+    GameTypes.Rank -> GameTypes.Rank -> [GameTypes.Rank]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
+     Unfolding: (\ (a :: GameTypes.Rank) (b :: GameTypes.Rank) ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank a of a# { DEFAULT ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank b of b# { DEFAULT ->
+                 case GHC.Prim.># a# b# of lwild {
+                   DEFAULT
+                   -> case GHC.Prim.>=# b# a# of lwild1 {
+                        DEFAULT
+                        -> case GHC.Prim.># 12# b# of lwild2 {
+                             DEFAULT
+                             -> GHC.Types.:
+                                  @ GameTypes.Rank
+                                  (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                  (let {
+                                     delta :: GHC.Prim.Int# = GHC.Prim.-# b# a#
+                                   } in
+                                   let {
+                                     y' :: GHC.Prim.Int# = GHC.Prim.-# 12# delta
+                                   } in
+                                   letrec {
+                                     go_dn :: GHC.Prim.Int# -> [GameTypes.Rank]
+                                       {- Arity: 1, Strictness: <S,U> -}
+                                     = \ (x :: GHC.Prim.Int#) ->
+                                       case GHC.Prim.<# x y' of lwild3 {
+                                         DEFAULT
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (go_dn (GHC.Prim.+# x delta))
+                                         1#
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (GHC.Types.[] @ GameTypes.Rank) }
+                                   } in
+                                   go_dn b#)
+                             1#
+                             -> case GHC.Prim.># 12# a# of lwild3 {
+                                  DEFAULT
+                                  -> GHC.Types.:
+                                       @ GameTypes.Rank
+                                       (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                       (GHC.Types.[] @ GameTypes.Rank)
+                                  1# -> GHC.Types.[] @ GameTypes.Rank } }
+                        1#
+                        -> case GHC.Prim.<# 12# b# of lwild2 {
+                             DEFAULT
+                             -> GHC.Types.:
+                                  @ GameTypes.Rank
+                                  (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                  (let {
+                                     delta :: GHC.Prim.Int# = GHC.Prim.-# b# a#
+                                   } in
+                                   let {
+                                     y' :: GHC.Prim.Int# = GHC.Prim.-# 12# delta
+                                   } in
+                                   letrec {
+                                     go_up :: GHC.Prim.Int# -> [GameTypes.Rank]
+                                       {- Arity: 1, Strictness: <S,U> -}
+                                     = \ (x :: GHC.Prim.Int#) ->
+                                       case GHC.Prim.># x y' of lwild3 {
+                                         DEFAULT
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (go_up (GHC.Prim.+# x delta))
+                                         1#
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (GHC.Types.[] @ GameTypes.Rank) }
+                                   } in
+                                   go_up b#)
+                             1#
+                             -> case GHC.Prim.<# 12# a# of lwild3 {
+                                  DEFAULT
+                                  -> GHC.Types.:
+                                       @ GameTypes.Rank
+                                       (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                       (GHC.Types.[] @ GameTypes.Rank)
+                                  1# -> GHC.Types.[] @ GameTypes.Rank } } }
+                   1#
+                   -> case GHC.Prim.>=# b# a# of lwild1 {
+                        DEFAULT
+                        -> case GHC.Prim.># 0# b# of lwild2 {
+                             DEFAULT
+                             -> GHC.Types.:
+                                  @ GameTypes.Rank
+                                  (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                  (let {
+                                     delta :: GHC.Prim.Int# = GHC.Prim.-# b# a#
+                                   } in
+                                   let {
+                                     y' :: GHC.Prim.Int# = GHC.Prim.-# 0# delta
+                                   } in
+                                   letrec {
+                                     go_dn :: GHC.Prim.Int# -> [GameTypes.Rank]
+                                       {- Arity: 1, Strictness: <S,U> -}
+                                     = \ (x :: GHC.Prim.Int#) ->
+                                       case GHC.Prim.<# x y' of lwild3 {
+                                         DEFAULT
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (go_dn (GHC.Prim.+# x delta))
+                                         1#
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (GHC.Types.[] @ GameTypes.Rank) }
+                                   } in
+                                   go_dn b#)
+                             1#
+                             -> case GHC.Prim.># 0# a# of lwild3 {
+                                  DEFAULT
+                                  -> GHC.Types.:
+                                       @ GameTypes.Rank
+                                       (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                       (GHC.Types.[] @ GameTypes.Rank)
+                                  1# -> GHC.Types.[] @ GameTypes.Rank } }
+                        1#
+                        -> case GHC.Prim.<# 0# b# of lwild2 {
+                             DEFAULT
+                             -> GHC.Types.:
+                                  @ GameTypes.Rank
+                                  (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                  (let {
+                                     delta :: GHC.Prim.Int# = GHC.Prim.-# b# a#
+                                   } in
+                                   let {
+                                     y' :: GHC.Prim.Int# = GHC.Prim.-# 0# delta
+                                   } in
+                                   letrec {
+                                     go_up :: GHC.Prim.Int# -> [GameTypes.Rank]
+                                       {- Arity: 1, Strictness: <S,U> -}
+                                     = \ (x :: GHC.Prim.Int#) ->
+                                       case GHC.Prim.># x y' of lwild3 {
+                                         DEFAULT
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (go_up (GHC.Prim.+# x delta))
+                                         1#
+                                         -> GHC.Types.:
+                                              @ GameTypes.Rank
+                                              (GHC.Prim.tagToEnum# @ GameTypes.Rank x)
+                                              (GHC.Types.[] @ GameTypes.Rank) }
+                                   } in
+                                   go_up b#)
+                             1#
+                             -> case GHC.Prim.<# 0# a# of lwild3 {
+                                  DEFAULT
+                                  -> GHC.Types.:
+                                       @ GameTypes.Rank
+                                       (GHC.Prim.tagToEnum# @ GameTypes.Rank a#)
+                                       (GHC.Types.[] @ GameTypes.Rank)
+                                  1# -> GHC.Types.[] @ GameTypes.Rank } } } } } }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cenumFromThenTo ::
+    GameTypes.Rank
+    -> GameTypes.Rank -> GameTypes.Rank -> [GameTypes.Rank]
+  {- Arity: 3, Strictness: <S,U><S,U><S,U> -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cenumFromTo ::
+    GameTypes.Rank -> GameTypes.Rank -> [GameTypes.Rank]
+  {- Arity: 2, Strictness: <S,U><S,U>,
+     Unfolding: (\ (x :: GameTypes.Rank) (y :: GameTypes.Rank) ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank x of a# { DEFAULT ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank y of a#1 { DEFAULT ->
+                 case GHC.Prim.># a# a#1 of lwild {
+                   DEFAULT
+                   -> letrec {
+                        go :: GHC.Prim.Int# -> [GameTypes.Rank]
+                          {- Arity: 1, Strictness: <L,U> -}
+                        = \ (x1 :: GHC.Prim.Int#) ->
+                          GHC.Types.:
+                            @ GameTypes.Rank
+                            (case GHC.Prim.>=# x1 0# of lwild1 {
+                               DEFAULT -> GameTypes.$wlvl x1
+                               1#
+                               -> case GHC.Prim.<=# x1 12# of lwild2 {
+                                    DEFAULT -> GameTypes.$wlvl x1
+                                    1# -> GHC.Prim.tagToEnum# @ GameTypes.Rank x1 } })
+                            (case GHC.Prim.==# x1 a#1 of lwild1 {
+                               DEFAULT -> go (GHC.Prim.+# x1 1#)
+                               1# -> GHC.Types.[] @ GameTypes.Rank })
+                      } in
+                      go a#
+                   1# -> GHC.Types.[] @ GameTypes.Rank } } }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cfromEnum :: GameTypes.Rank -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Rank) ->
+                 case GHC.Prim.dataToTag# @ GameTypes.Rank a of a# { DEFAULT ->
+                 GHC.Types.I# a# }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$cpred :: GameTypes.Rank -> GameTypes.Rank
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Rank) ->
+                 case a of lwild {
+                   DEFAULT
+                   -> case GHC.Prim.dataToTag#
+                             @ GameTypes.Rank
+                             lwild of a# { DEFAULT ->
+                      GHC.Prim.tagToEnum# @ GameTypes.Rank (GHC.Prim.+# a# -1#) }
+                   GameTypes.Ace -> GameTypes.$fEnumRank1 }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$csucc :: GameTypes.Rank -> GameTypes.Rank
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Rank) ->
+                 case a of lwild {
+                   DEFAULT
+                   -> case GHC.Prim.dataToTag#
+                             @ GameTypes.Rank
+                             lwild of a# { DEFAULT ->
+                      GHC.Prim.tagToEnum# @ GameTypes.Rank (GHC.Prim.+# a# 1#) }
+                   GameTypes.King -> GameTypes.$fEnumRank2 }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_$ctoEnum :: GHC.Types.Int -> GameTypes.Rank
+  {- Arity: 1, Strictness: <S(S),1*U(U)>, Inline: [2],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: GHC.Types.Int) ->
+                 case w of ww { GHC.Types.I# ww1 -> GameTypes.$w$ctoEnum ww1 }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $fEnumRank_go :: GHC.Prim.Int# -> [GameTypes.Rank]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m2 -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit :: GHC.Enum.Enum GameTypes.Suit
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ GameTypes.Suit
+                  GameTypes.$fEnumSuit_$csucc
+                  GameTypes.$fEnumSuit_$cpred
+                  GameTypes.$fEnumSuit_$ctoEnum
+                  GameTypes.$fEnumSuit_$cfromEnum
+                  GameTypes.$fEnumSuit_$cenumFrom
+                  GameTypes.$fEnumSuit_$cenumFromThen
+                  GameTypes.$fEnumSuit_$cenumFromTo
+                  GameTypes.$fEnumSuit_$cenumFromThenTo -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit1 :: [GameTypes.Suit]
+  {- Unfolding: (GameTypes.$fEnumSuit_go4 3#) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit2 :: [GameTypes.Suit]
+  {- Unfolding: (GameTypes.$fEnumSuit_go4 2#) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit3 :: [GameTypes.Suit]
+  {- Unfolding: (GameTypes.$fEnumSuit_go4 1#) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit4 :: [GameTypes.Suit]
+  {- Unfolding: (GameTypes.$fEnumSuit_go4 0#) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit5 :: GameTypes.Suit
+  {- Strictness: x -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit6 :: GameTypes.Suit
+  {- Strictness: x -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cenumFrom :: GameTypes.Suit -> [GameTypes.Suit]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (a :: GameTypes.Suit) ->
+                 case a of wild {
+                   GameTypes.Spade -> GameTypes.$fEnumSuit4
+                   GameTypes.Club -> GameTypes.$fEnumSuit3
+                   GameTypes.Heart -> GameTypes.$fEnumSuit2
+                   GameTypes.Diamond -> GameTypes.$fEnumSuit1 }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cenumFromThen ::
+    GameTypes.Suit -> GameTypes.Suit -> [GameTypes.Suit]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U> -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cenumFromThenTo ::
+    GameTypes.Suit
+    -> GameTypes.Suit -> GameTypes.Suit -> [GameTypes.Suit]
+  {- Arity: 3, Strictness: <S,1*U><S,1*U><S,1*U> -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cenumFromTo ::
+    GameTypes.Suit -> GameTypes.Suit -> [GameTypes.Suit]
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (x :: GameTypes.Suit) (y :: GameTypes.Suit) ->
+                 let {
+                   $j :: GHC.Prim.Int# -> [GameTypes.Suit]
+                     <join 1> {- Arity: 1, Strictness: <S,U> -}
+                   = \ (x1 :: GHC.Prim.Int#)[OneShot] ->
+                     case y of wild {
+                       GameTypes.Spade
+                       -> case GHC.Prim.># x1 0# of lwild {
+                            DEFAULT -> GameTypes.$fEnumSuit_go3 x1
+                            1# -> GHC.Types.[] @ GameTypes.Suit }
+                       GameTypes.Club
+                       -> case GHC.Prim.># x1 1# of lwild {
+                            DEFAULT -> GameTypes.$fEnumSuit_go2 x1
+                            1# -> GHC.Types.[] @ GameTypes.Suit }
+                       GameTypes.Heart
+                       -> case GHC.Prim.># x1 2# of lwild {
+                            DEFAULT -> GameTypes.$fEnumSuit_go1 x1
+                            1# -> GHC.Types.[] @ GameTypes.Suit }
+                       GameTypes.Diamond
+                       -> case GHC.Prim.># x1 3# of lwild {
+                            DEFAULT -> GameTypes.$fEnumSuit_go x1
+                            1# -> GHC.Types.[] @ GameTypes.Suit } }
+                 } in
+                 case x of wild {
+                   GameTypes.Spade -> $j 0#
+                   GameTypes.Club -> $j 1#
+                   GameTypes.Heart -> $j 2#
+                   GameTypes.Diamond -> $j 3# }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cfromEnum :: GameTypes.Suit -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Suit) ->
+                 case a of wild {
+                   GameTypes.Spade -> GHC.Types.I# 0#
+                   GameTypes.Club -> GHC.Types.I# 1#
+                   GameTypes.Heart -> GHC.Types.I# 2#
+                   GameTypes.Diamond -> GHC.Types.I# 3# }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$cpred :: GameTypes.Suit -> GameTypes.Suit
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Suit) ->
+                 case a of wild {
+                   GameTypes.Spade -> GameTypes.$fEnumSuit5
+                   GameTypes.Club -> GameTypes.Spade
+                   GameTypes.Heart -> GameTypes.Club
+                   GameTypes.Diamond -> GameTypes.Heart }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$csucc :: GameTypes.Suit -> GameTypes.Suit
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (a :: GameTypes.Suit) ->
+                 case a of wild {
+                   GameTypes.Spade -> GameTypes.Club
+                   GameTypes.Club -> GameTypes.Heart
+                   GameTypes.Heart -> GameTypes.Diamond
+                   GameTypes.Diamond -> GameTypes.$fEnumSuit6 }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_$ctoEnum :: GHC.Types.Int -> GameTypes.Suit
+  {- Arity: 1, Strictness: <S(S),1*U(U)>, Inline: [2],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: GHC.Types.Int) ->
+                 case w of ww { GHC.Types.I# ww1 -> GameTypes.$w$ctoEnum1 ww1 }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_go :: GHC.Prim.Int# -> [GameTypes.Suit]
+  {- Arity: 1, Strictness: <L,U>m2 -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_go1 :: GHC.Prim.Int# -> [GameTypes.Suit]
+  {- Arity: 1, Strictness: <L,U>m2 -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_go2 :: GHC.Prim.Int# -> [GameTypes.Suit]
+  {- Arity: 1, Strictness: <L,U>m2 -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_go3 :: GHC.Prim.Int# -> [GameTypes.Suit]
+  {- Arity: 1, Strictness: <L,U>m2 -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $fEnumSuit_go4 :: GHC.Prim.Int# -> [GameTypes.Suit]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m2 -}
+6215c90c2c8c4624c983fc6bd02d9fdd
   $fShowCard :: GHC.Show.Show GameTypes.Card
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -47,7 +443,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
                   GameTypes.$fShowCard_$cshowsPrec
                   GameTypes.$fShowCard_$cshow
                   GameTypes.$fShowCard_$cshowList -}
-a8e6ae55fd67c3708fd7e810811aa74c
+6215c90c2c8c4624c983fc6bd02d9fdd
   $fShowCard1 :: GameTypes.Card -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(1*U,1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Card) (w1 :: GHC.Base.String) ->
@@ -171,20 +567,20 @@ ecbc594d0e2bb599fdeadc29f9014e2f
 5916ca28df75850f4bb1c67262dc7f75
   $fShowCard9 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Ten"#) -}
-a8e6ae55fd67c3708fd7e810811aa74c
+6215c90c2c8c4624c983fc6bd02d9fdd
   $fShowCard_$cshow :: GameTypes.Card -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>, Inline: [2],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: GameTypes.Card) ->
                  case w of ww { GameTypes.Card ww1 ww2 ->
                  GameTypes.$w$cshow ww1 ww2 }) -}
-a8e6ae55fd67c3708fd7e810811aa74c
+6215c90c2c8c4624c983fc6bd02d9fdd
   $fShowCard_$cshowList :: [GameTypes.Card] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Card]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Card GameTypes.$fShowCard1 ls s) -}
-a8e6ae55fd67c3708fd7e810811aa74c
+6215c90c2c8c4624c983fc6bd02d9fdd
   $fShowCard_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Card -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U,1*U)><L,U>,
@@ -196,7 +592,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Card ww3 ww4 ->
                  GameTypes.$w$cshowsPrec ww1 ww3 ww4 w2 } }) -}
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   $fShowDeck :: GHC.Show.Show GameTypes.Deck
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -205,7 +601,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
                   GameTypes.$fShowDeck_$cshowsPrec
                   GameTypes.$fShowDeck_$cshow
                   GameTypes.$fShowDeck_$cshowList -}
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   $fShowDeck1 :: GameTypes.Deck -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Deck) (w1 :: GHC.Base.String) ->
@@ -217,7 +613,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
 51165256a90943b030c50f88a8bea8a3
   $fShowDeck3 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   $fShowDeck_$cshow :: GameTypes.Deck -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U)>,
      Unfolding: InlineRule (1, True, False)
@@ -226,13 +622,13 @@ a8e6ae55fd67c3708fd7e810811aa74c
                    GameTypes.$fShowDeck3
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   $fShowDeck_$cshowList :: [GameTypes.Deck] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Deck]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Deck GameTypes.$fShowDeck1 ls s) -}
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   $fShowDeck_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Deck -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U)><L,U>,
@@ -244,7 +640,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Deck ww3 ->
                  GameTypes.$w$cshowsPrec3 ww1 ww3 w2 } }) -}
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   $fShowGame :: GHC.Show.Show GameTypes.Game
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -253,13 +649,13 @@ a8e6ae55fd67c3708fd7e810811aa74c
                   GameTypes.$fShowGame_$cshowsPrec
                   GameTypes.$fShowGame_$cshow
                   GameTypes.$fShowGame_$cshowList -}
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   $fShowGame1 :: GameTypes.Game -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(1*U(1*U),1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Game) (w1 :: GHC.Base.String) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
                  GameTypes.$w$cshowsPrec4 0# ww1 ww2 w1 }) -}
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   $fShowGame_$cshow :: GameTypes.Game -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U(1*U),1*U)>,
      Unfolding: InlineRule (1, True, False)
@@ -268,13 +664,13 @@ a8e6ae55fd67c3708fd7e810811aa74c
                    GameTypes.$fShowDeck3
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   $fShowGame_$cshowList :: [GameTypes.Game] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Game]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Game GameTypes.$fShowGame1 ls s) -}
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   $fShowGame_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Game -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U(1*U),1*U)><L,U>,
@@ -286,7 +682,7 @@ a8e6ae55fd67c3708fd7e810811aa74c
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Game ww3 ww4 ->
                  GameTypes.$w$cshowsPrec4 ww1 ww3 ww4 w2 } }) -}
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   $fShowHand :: GHC.Show.Show GameTypes.Hand
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -295,7 +691,7 @@ b4cae82b00e673f5a56219a92ff9a880
                   GameTypes.$fShowHand_$cshowsPrec
                   GameTypes.$fShowHand_$cshow
                   GameTypes.$fShowHand_$cshowList -}
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   $fShowHand1 :: GameTypes.Hand -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(1*U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Hand) (w1 :: GHC.Base.String) ->
@@ -304,7 +700,7 @@ b4cae82b00e673f5a56219a92ff9a880
 b8b5a2f5b9100abb63703c78933ce50c
   $fShowHand2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Hand "#) -}
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   $fShowHand_$cshow :: GameTypes.Hand -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(1*U)>,
      Unfolding: InlineRule (1, True, False)
@@ -313,13 +709,13 @@ b4cae82b00e673f5a56219a92ff9a880
                    GameTypes.$fShowDeck3
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   $fShowHand_$cshowList :: [GameTypes.Hand] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
                 (\ (ls :: [GameTypes.Hand]) (s :: GHC.Base.String) ->
                  GHC.Show.showList__ @ GameTypes.Hand GameTypes.$fShowHand1 ls s) -}
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   $fShowHand_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Hand -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(1*U)><L,U>,
@@ -331,7 +727,7 @@ b4cae82b00e673f5a56219a92ff9a880
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Hand ww3 ->
                  GameTypes.$w$cshowsPrec5 ww1 ww3 w2 } }) -}
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   $fShowPlayer :: GHC.Show.Show GameTypes.Player
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -340,7 +736,7 @@ b4cae82b00e673f5a56219a92ff9a880
                   GameTypes.$fShowPlayer_$cshowsPrec
                   GameTypes.$fShowPlayer_$cshow
                   GameTypes.$fShowPlayer_$cshowList -}
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   $fShowPlayer1 :: GameTypes.Player -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U(U,1*U(1*U),U)><L,U>,
      Unfolding: (\ (w :: GameTypes.Player) (w1 :: GHC.Base.String) ->
@@ -353,7 +749,7 @@ efc41920e3353d1f210fc85f15f5282b
 9f893f006fbe5395835014bc2d19e085
   $fShowPlayer3 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Player "#) -}
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   $fShowPlayer_$cshow :: GameTypes.Player -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U(U,1*U(1*U),U)>,
      Unfolding: InlineRule (1, True, False)
@@ -362,7 +758,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.$fShowDeck3
                    x
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   $fShowPlayer_$cshowList :: [GameTypes.Player] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
@@ -372,7 +768,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.$fShowPlayer1
                    ls
                    s) -}
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   $fShowPlayer_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Player -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <S(S),1*U(U)><S,1*U(U,1*U(1*U),U)><L,U>,
@@ -384,7 +780,7 @@ efc41920e3353d1f210fc85f15f5282b
                  case w of ww { GHC.Types.I# ww1 ->
                  case w1 of ww2 { GameTypes.Player ww3 ww4 ww5 ->
                  GameTypes.$w$cshowsPrec6 ww1 ww3 ww4 ww5 w2 } }) -}
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   $fShowRank :: GHC.Show.Show GameTypes.Rank
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -393,7 +789,7 @@ efc41920e3353d1f210fc85f15f5282b
                   GameTypes.$fShowRank_$cshowsPrec
                   GameTypes.$fShowRank_$cshow
                   GameTypes.$fShowRank_$cshowList -}
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   $fShowRank_$cshow :: GameTypes.Rank -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: (\ (x :: GameTypes.Rank) ->
@@ -411,7 +807,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.Jack -> GameTypes.$fShowCard6
                    GameTypes.Queen -> GameTypes.$fShowCard4
                    GameTypes.King -> GameTypes.$fShowCard2 }) -}
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   $fShowRank_$cshowList :: [GameTypes.Rank] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
@@ -421,7 +817,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.$w$cshowsPrec1
                    ls
                    s) -}
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   $fShowRank_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Rank -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
@@ -430,7 +826,7 @@ efc41920e3353d1f210fc85f15f5282b
                    (w1 :: GameTypes.Rank)
                    (w2 :: GHC.Base.String) ->
                  GameTypes.$w$cshowsPrec1 w1 w2) -}
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   $fShowSuit :: GHC.Show.Show GameTypes.Suit
   DFunId
   {- Strictness: m, Inline: CONLIKE,
@@ -439,7 +835,7 @@ efc41920e3353d1f210fc85f15f5282b
                   GameTypes.$fShowSuit_$cshowsPrec
                   GameTypes.$fShowSuit_$cshow
                   GameTypes.$fShowSuit_$cshowList -}
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   $fShowSuit_$cshow :: GameTypes.Suit -> GHC.Base.String
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: InlineRule (1, True, False)
@@ -449,7 +845,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.Club -> GameTypes.$fShowCard32
                    GameTypes.Heart -> GameTypes.$fShowCard30
                    GameTypes.Diamond -> GameTypes.$fShowCard28 }) -}
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   $fShowSuit_$cshowList :: [GameTypes.Suit] -> GHC.Show.ShowS
   {- Arity: 2, Strictness: <S,1*U><L,U>,
      Unfolding: InlineRule (2, True, False)
@@ -459,7 +855,7 @@ efc41920e3353d1f210fc85f15f5282b
                    GameTypes.$w$cshowsPrec2
                    ls
                    s) -}
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   $fShowSuit_$cshowsPrec ::
     GHC.Types.Int -> GameTypes.Suit -> GHC.Show.ShowS
   {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>, Inline: [2],
@@ -1002,7 +1398,7 @@ d6bf0422eede51636623e4607273943f
 52c7bcf8cfe9067560c325db9d91ebea
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-23e78accd9c49323504c84f6d9290f90
+deb775d78ca8a9b56ca828de48d85778
   $w$cshow :: GameTypes.Suit -> GameTypes.Rank -> GHC.Base.String
   {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [2],
      Unfolding: (\ (ww :: GameTypes.Suit) (ww1 :: GameTypes.Rank) ->
@@ -1016,7 +1412,7 @@ d6bf0422eede51636623e4607273943f
                          (GameTypes.$w$cshowsPrec1
                             ww1
                             (GHC.Types.[] @ GHC.Types.Char))))) -}
-addc8f3a10c76e44a3249fad6faa4713
+08207bb5317ce3468f95059b6c210e66
   $w$cshowsPrec ::
     GHC.Prim.Int#
     -> GameTypes.Suit
@@ -1047,7 +1443,7 @@ addc8f3a10c76e44a3249fad6faa4713
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w)) }) -}
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   $w$cshowsPrec1 ::
     GameTypes.Rank -> GHC.Base.String -> GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
@@ -1079,7 +1475,7 @@ addc8f3a10c76e44a3249fad6faa4713
                    -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard4 w1
                    GameTypes.King
                    -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard2 w1 }) -}
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   $w$cshowsPrec2 ::
     GameTypes.Suit -> GHC.Base.String -> GHC.Base.String
   {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [2],
@@ -1093,7 +1489,7 @@ addc8f3a10c76e44a3249fad6faa4713
                    -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard30 w1
                    GameTypes.Diamond
                    -> GHC.Base.++ @ GHC.Types.Char GameTypes.$fShowCard28 w1 }) -}
-f6152c9b293252fb63c1147a95a74267
+c00d1a0dfe2669d634ae1b18c53777cf
   $w$cshowsPrec3 ::
     GHC.Prim.Int#
     -> [GameTypes.Card] -> GHC.Base.String -> GHC.Base.String
@@ -1157,7 +1553,7 @@ f6152c9b293252fb63c1147a95a74267
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w)) }) -}
-3c8f9b2e0b8a6ffa3e8f4df9019abcab
+83962227e76554d9479a755b6a048a22
   $w$cshowsPrec4 ::
     GHC.Prim.Int#
     -> GameTypes.Deck
@@ -1166,7 +1562,7 @@ f6152c9b293252fb63c1147a95a74267
     -> GHC.Base.String
   {- Arity: 4, Strictness: <S,U><L,1*U(1*U)><L,1*U><L,U>,
      Inline: [2] -}
-43ec4a10e8f63cc8d96cfec427fcf410
+2db7db4f8aedf70ee36b35f402352cf1
   $w$cshowsPrec5 ::
     GHC.Prim.Int#
     -> [GameTypes.Card] -> GHC.Base.String -> GHC.Base.String
@@ -1230,7 +1626,7 @@ f6152c9b293252fb63c1147a95a74267
                         @ GHC.Types.Char
                         GHC.Show.$fShow(,)4
                         (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w)) }) -}
-a2a354d7b271b187e9400f9026191dd5
+bd75cfba387f28beb2efeb3b258638f4
   $w$cshowsPrec6 ::
     GHC.Prim.Int#
     -> GameTypes.Id
@@ -1283,19 +1679,45 @@ a2a354d7b271b187e9400f9026191dd5
                            @ GHC.Types.Char
                            GameTypes.$fShowPlayer2
                            (g (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 w))) }) -}
-a8e6ae55fd67c3708fd7e810811aa74c
+f040b2257d2b1a88badd3110d99fdf9f
+  $w$ctoEnum :: GHC.Prim.Int# -> GameTypes.Rank
+  {- Arity: 1, Strictness: <S,U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#) ->
+                 case GHC.Prim.>=# ww 0# of lwild {
+                   DEFAULT -> GameTypes.$wlvl ww
+                   1#
+                   -> case GHC.Prim.<=# ww 12# of lwild1 {
+                        DEFAULT -> GameTypes.$wlvl ww
+                        1# -> GHC.Prim.tagToEnum# @ GameTypes.Rank ww } }) -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $w$ctoEnum1 :: GHC.Prim.Int# -> GameTypes.Suit
+  {- Arity: 1, Strictness: <S,U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#) ->
+                 case GHC.Prim.>=# ww 0# of lwild {
+                   DEFAULT -> GameTypes.$wlvl1 ww
+                   1#
+                   -> case GHC.Prim.<=# ww 3# of lwild1 {
+                        DEFAULT -> GameTypes.$wlvl1 ww
+                        1# -> GHC.Prim.tagToEnum# @ GameTypes.Suit ww } }) -}
+f040b2257d2b1a88badd3110d99fdf9f
+  $wlvl :: GHC.Prim.Int# -> GameTypes.Rank
+  {- Arity: 1, Strictness: <B,U>x, Inline: [2] -}
+ecd83c74f178132c266c910d7a0d4b3b
+  $wlvl1 :: GHC.Prim.Int# -> GameTypes.Suit
+  {- Arity: 1, Strictness: <B,U>x, Inline: [2] -}
+6215c90c2c8c4624c983fc6bd02d9fdd
   data Card = Card GameTypes.Suit GameTypes.Rank
-96fdc6884b8f6c17d30f907111d27fd4
+6ba9f765828f94acae51ec362b4412cf
   data Deck = Deck [GameTypes.Card]
-3bce3074357214c65a171812000654b7
+bff7543e1bf5fadbb445e5528834512e
   data Game = Game GameTypes.Deck [GHC.Maybe.Maybe GameTypes.Player]
-b4cae82b00e673f5a56219a92ff9a880
+8870f94f4aa3a6afaf587ad72c2cd5c6
   data Hand = Hand [GameTypes.Card]
 a797aeaff508cea35068e953c1207cac
   type Id = GHC.Integer.Type.Integer
-1ebe2b600e107f45149573fcae7cfe3f
+2002e0599069a975c1ee8d2a8afe91cf
   data Player = Player GameTypes.Id GameTypes.Hand GameTypes.Score
-9d82380a3c4835adca6131728c7ceaf9
+f040b2257d2b1a88badd3110d99fdf9f
   data Rank
     = Ace
     | Two
@@ -1312,8 +1734,12 @@ a797aeaff508cea35068e953c1207cac
     | King
 aee40ddf141d35912419bc402b0cc0b9
   type Score = GHC.Integer.Type.Integer
-5c027ad0dfa3cc5f2e1f8cd5b82c6b02
+ecd83c74f178132c266c910d7a0d4b3b
   data Suit = Spade | Club | Heart | Diamond
+instance [safe] GHC.Enum.Enum [GameTypes.Rank]
+  = GameTypes.$fEnumRank
+instance [safe] GHC.Enum.Enum [GameTypes.Suit]
+  = GameTypes.$fEnumSuit
 instance [safe] GHC.Show.Show [GameTypes.Card]
   = GameTypes.$fShowCard
 instance [safe] GHC.Show.Show [GameTypes.Deck]

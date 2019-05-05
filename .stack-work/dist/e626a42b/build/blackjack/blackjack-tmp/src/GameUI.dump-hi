@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-05-05 02:57:08.912866 UTC
+2019-05-05 03:16:44.4575586 UTC
 
 interface main:GameUI 8064
-  interface hash: cf826824872aa20ba623f7325e1b09f6
-  ABI hash: 23feb392ddbcdf6fbb4c43635e07be45
+  interface hash: afb00e0e0595ec20c78f9172eda803c9
+  ABI hash: 72d8b1dda6dde1f31f3c81f76527f06b
   export-list hash: a1a1d440c423a68e93674cc3bccaf733
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c81183b4f3dbe34d2e7de0e678a2e9cc
@@ -46,21 +46,21 @@ import  -/  base-4.12.0.0:Text.Read e7452753e4b5b609f2d5caebdb00e722
 import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  integer-gmp-1.0.2.0:GHC.Integer.Type 34234e515bc4cbda6d7cda923884fd3f
-import  -/  GameLogic 6a2b257487ac107a03b410604db7acc5
+import  -/  GameLogic 0bf42e1352edb1572b53530454a6d832
   exports: 7a513fc0946caf822384ba5b39650778
-  checkGameStatus f3d59d0dd4503089a0aae1bb93dccca3
-  checkPlayerScore 05dabf585ac7e30ff631a162718d5e90
-  dealCard bb2870dba2d23ecb892b41e92376e72c
-  determineWinner 7b529e7a777f273ff4dc93f04cfc6bb8
-  dropPlayer ba6328f19876656956b288d6b3f66030
-  scoreAllPlayers 89ac6fd95a378e530753950815a9c7da
-  setupGame 645bc94e4a876edcff6562482c808b17
-  showPlayerCards 7520c906f1272e717b90f8a1fc2b520e
-  showPlayerScore 2916c94234a3569675e7952c93f754ac
-import  -/  GameTypes 3f6d9af0e75c13797764bd61b26d7233
+  checkGameStatus 2cbd14b05b8ba1fb2f08e9807f346a4d
+  checkPlayerScore 7e55c89ceaf0f6a3e9c9cfdeca2b7bdb
+  dealCard 63884a3ef5bbd96ef6c659c23e6c9adb
+  determineWinner bbf987c087a010326f4727d9e0a69cc7
+  dropPlayer 1d57a66a20c2f628123f6ad268f697bf
+  scoreAllPlayers 000aa34840030da3e6f7bcbd9f530b39
+  setupGame 368db93480095565deeeabb23adc236b
+  showPlayerCards 136440e3b26ed1c7bfc3b675396d234c
+  showPlayerScore 771f0d70d54f43060bb11281c9e3dbfa
+import  -/  GameTypes b7d560a7947944d08410c28da6bb84e6
   exports: d0cfcd50ba0ec194499f629b661e84f4
-  Game a06bafd2ffb458968cf7f1709c1bbf99
-  Game 3bce3074357214c65a171812000654b7
+  Game df4a6ea862cb79b654f4de64ca440e65
+  Game bff7543e1bf5fadbb445e5528834512e
   Id a797aeaff508cea35068e953c1207cac
   Score aee40ddf141d35912419bc402b0cc0b9
 e408f8d3d2995f55766f006e89d6e72d
@@ -83,7 +83,7 @@ e408f8d3d2995f55766f006e89d6e72d
 f864dae0b07e0672aabf2a2e2b97c6c1
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-231b679fef48fbebbadac97a2238724d
+cc3d8114b6365a46ad90d07e78872905
   $wbeginRound ::
     GameTypes.Deck
     -> [GHC.Maybe.Maybe GameTypes.Player]
@@ -91,7 +91,7 @@ f864dae0b07e0672aabf2a2e2b97c6c1
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
   {- Arity: 4, Strictness: <L,U(U)><L,U><L,U><S,U>, Inline: [2] -}
-ac2a930addf60f48a87beda22a9b26bd
+ec33ae52acfbe8091ba100836b6b5778
   beginRound ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
   {- Arity: 3, Strictness: <S,1*U(U(U),U)><L,U><S,U>,
@@ -101,7 +101,7 @@ ac2a930addf60f48a87beda22a9b26bd
                 (<GameTypes.Game>_R
                  ->_R <GameTypes.Id>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-99635e7cae75b57d7182ee083721f87a
+8eacfc86d316b37ccdf0e6cb340cf149
   beginRound1 ::
     GameTypes.Game
     -> GameTypes.Id
@@ -124,14 +124,14 @@ c652f32f32a46b25a8560a0b438857a0
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-ebcec210a6c97bde83ae5b0ee0b9fe3a
+afad897f69025ef6feb4bb0d93b0a066
   startGame :: GHC.Types.IO GameTypes.Game
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 GameUI.startGame1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-7a97d222f1bd3fec418be5990851b911
+3a1719daef0de8934ca5a079757003c0
   startGame1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)

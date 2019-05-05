@@ -4,7 +4,7 @@ data Suit = Spade
           | Club
           | Heart
           | Diamond
-          deriving Show
+          deriving (Show, Enum)
 
 data Rank = Ace
           | Two
@@ -19,7 +19,7 @@ data Rank = Ace
           | Jack
           | Queen
           | King
-          deriving Show
+          deriving (Show, Enum)
 
 data Card = Card Suit Rank
           deriving Show

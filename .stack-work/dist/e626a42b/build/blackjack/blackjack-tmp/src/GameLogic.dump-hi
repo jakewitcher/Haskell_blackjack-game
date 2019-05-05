@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-05-05 02:57:08.3483764 UTC
+2019-05-05 03:16:43.906074 UTC
 
 interface main:GameLogic 8064
-  interface hash: 36b9277bff19e9bea2511436aa107189
-  ABI hash: 6a2b257487ac107a03b410604db7acc5
+  interface hash: 921c9903082808cdeed7334ea3e00892
+  ABI hash: 0bf42e1352edb1572b53530454a6d832
   export-list hash: 7a513fc0946caf822384ba5b39650778
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: c81183b4f3dbe34d2e7de0e678a2e9cc
@@ -55,38 +55,33 @@ import  -/  base-4.12.0.0:Prelude aea9afd24db8aed3563d7d850ea453c0
 import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  integer-gmp-1.0.2.0:GHC.Integer.Type 34234e515bc4cbda6d7cda923884fd3f
-import  -/  GameTypes 3f6d9af0e75c13797764bd61b26d7233
+import  -/  GameTypes b7d560a7947944d08410c28da6bb84e6
   exports: d0cfcd50ba0ec194499f629b661e84f4
-  Ace 52657e73d7d3a148b4d7874f69732d00
-  Card 53aa120e8bda0e36d71124dff7e413f2
-  Card a8e6ae55fd67c3708fd7e810811aa74c
-  Club 48c7e885560245b470508896bf619bb2
-  Deck 5fcf2c22612a7cad4f7d6e887392c0b3
-  Deck 96fdc6884b8f6c17d30f907111d27fd4
-  Diamond 90e3a2532f3da5d97419ba8737e8ef86
-  Eight 31b17d890cae70baefe6c72c06460387
-  Five 28e767a48672ffde8dd2e4266053a97b
-  Four fd193ea3f5353d6fbc14f1b3c7a5f76d
-  Game a06bafd2ffb458968cf7f1709c1bbf99
-  Game 3bce3074357214c65a171812000654b7
-  Hand fb158e1dd79474cb6bc6571b5ed82bac
-  Heart 1fc6e533fb2279799ec4d09ed93ded4f
+  Ace 68b724b1facc502b615f393bcd831115
+  Card 6f4a846a34b1fef2f64be6d1a0814a97
+  Card 6215c90c2c8c4624c983fc6bd02d9fdd
+  Deck a2ae1cdbb4aced0d0beee67f8b75c222
+  Deck 6ba9f765828f94acae51ec362b4412cf
+  Diamond 683eec62ad4f13e51ae02b3bdfa6fb30
+  Eight 388a25c8042ec334d647b89a8cc4775c
+  Five 36ea0a5f250933e46c4f467ff3614b69
+  Four 986f788bc26825d445ef204dd2d14d20
+  Game df4a6ea862cb79b654f4de64ca440e65
+  Game bff7543e1bf5fadbb445e5528834512e
+  Hand be1ba74fd50ca1bb32599f84f835b14c
   Id a797aeaff508cea35068e953c1207cac
-  Jack b0516b00cd5b3cc9a86480afb5913c90
-  King 972fe00e8411f8a39d0bdff1c62b471c
-  Nine 15938efffa7bc00201530f59a32e40b2
-  Player 99ad26c60237c8cdcd314f906a7664f7
-  Player 1ebe2b600e107f45149573fcae7cfe3f
-  Queen 0cd3f8923def08e588a3ef3ffda1f166
-  Rank 9d82380a3c4835adca6131728c7ceaf9
+  King 2437e4ed02089ac4d8bea8941c6b4870
+  Nine 53511abd9e3ea6af06348517616f9050
+  Player cc1aaafab82d20fa5adf87b8fee319dc
+  Player 2002e0599069a975c1ee8d2a8afe91cf
+  Rank f040b2257d2b1a88badd3110d99fdf9f
   Score aee40ddf141d35912419bc402b0cc0b9
-  Seven 02ad61fd46045fd4df0976aec6e64a33
-  Six 230294c4865bd499c6025f7b33225504
-  Spade dff612f9017ee9becc8054d6beb53f11
-  Suit 5c027ad0dfa3cc5f2e1f8cd5b82c6b02
-  Ten 6956e95545e63199d81954710e74f5ad
-  Three bfb9b28cffb8f7871eba6e705e143999
-  Two dcab1bab61f752409b7e46ec101a3abc
+  Seven 6f5d0fba03cc03aa33a75cac18379f42
+  Six 4742141266fc6eec1d42390f2bb39317
+  Spade 3d351f2333872f8d03c44b0dab114ebe
+  Suit ecd83c74f178132c266c910d7a0d4b3b
+  Three bf64af8e32c133dda5791243967779ae
+  Two cf0a72b9ae8c69c988e6f71c89686f71
 import  -/  random-1.1:System.Random 2df3d2176d852a42a0e8aa97126009b4
 ecc8d98f5c4e9be8fdc8af1bc1d7797e
   $trModule :: GHC.Types.Module
@@ -108,7 +103,7 @@ a5480c70aa279041c411ac6ab442334c
 1127b6b0b8e69e4d4b23b8a5d09f933d
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-7963f6526087301b685c36d7ca00d989
+fb1fd58745a69768541060fd5f326543
   $wcheckGameStatus ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Types.Bool
@@ -123,7 +118,7 @@ a5480c70aa279041c411ac6ab442334c
                         w
                         (GHC.Integer.Type.smallInteger ww2) of wild { DEFAULT ->
                  GHC.Prim.tagToEnum# @ GHC.Types.Bool wild } }) -}
-7aa645ed6c604889253e6e80dd7277d7
+719723b94d88be0d2715354dcda9a627
   $wcheckPlayerScore ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Types.Bool
@@ -131,26 +126,26 @@ a5480c70aa279041c411ac6ab442334c
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
                    (w :: GameTypes.Id) ->
                  letrec {
-                   go2 :: [GHC.Maybe.Maybe GameTypes.Player] -> GHC.Types.Bool
+                   go :: [GHC.Maybe.Maybe GameTypes.Player] -> GHC.Types.Bool
                      <join 1> {- Arity: 1, Strictness: <S,1*U> -}
                    = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
                      case ds of wild {
                        [] -> GHC.Types.False
                        : y ys
                        -> case y of wild1 {
-                            GHC.Maybe.Nothing -> go2 ys
+                            GHC.Maybe.Nothing -> go ys
                             GHC.Maybe.Just ds1
                             -> case ds1 of wild2 { GameTypes.Player i ds2 s ->
                                case GHC.Integer.Type.eqInteger# i w of wild3 {
-                                 DEFAULT -> go2 ys
+                                 DEFAULT -> go ys
                                  1#
                                  -> case GHC.Integer.Type.gtInteger#
                                            s
                                            GameLogic.checkPlayerScore1 of wild4 { DEFAULT ->
                                     GHC.Prim.tagToEnum# @ GHC.Types.Bool wild4 } } } } }
                  } in
-                 go2 ww) -}
-71dfaf889f795c8d35f4db98b959f0e2
+                 go ww) -}
+e4ad07b0d4472a637fad1b3786859736
   $wdealCard ::
     [GameTypes.Card]
     -> [GHC.Maybe.Maybe GameTypes.Player]
@@ -199,28 +194,19 @@ a5480c70aa279041c411ac6ab442334c
                                           $wgo2 ww 1#))
                                       s) } } } })
                       ww1 #)) -}
-7c2873d1e4829385dac80628aee4abca
-  $wdetermineWinner ::
-    [GHC.Maybe.Maybe GameTypes.Player]
-    -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
-  {- Arity: 1, Strictness: <S,1*U>, Inline: [2],
-     Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player]) ->
-                 case ww of wild {
-                   [] -> GameLogic.determineWinner1
-                   : player players -> GameLogic.determineWinner_go players }) -}
-fb3cd8978d1bbd61b437c456e5ddcb0b
+3a6ba0fbf806bab7e2afdff29b20de74
   $wgo ::
     GameTypes.Deck
     -> [GHC.Maybe.Maybe GameTypes.Player]
     -> GHC.Integer.Type.Integer
     -> (# GameTypes.Deck, [GHC.Maybe.Maybe GameTypes.Player] #)
   {- Arity: 3, Strictness: <L,U(U)><L,U><S,U>, Inline: [2] -}
-3219c8fedd2d5403e75a17d159911b19
+25ed4aec9d84264b339e4e3cedb7a1d6
   $wgo1 ::
     [GameTypes.Card]
     -> [GameTypes.Card] -> (# [GameTypes.Card], [GameTypes.Card] #)
   {- Arity: 2, Strictness: <S,1*U><S,1*U>, Inline: [2] -}
-9182583c2c939bcf4cc41d6ba9c99779
+01c5402218f993454a0260e9108590be
   $wshowPlayerCards ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Base.String
@@ -228,22 +214,22 @@ fb3cd8978d1bbd61b437c456e5ddcb0b
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
                    (w :: GameTypes.Id) ->
                  letrec {
-                   go2 :: [GHC.Maybe.Maybe GameTypes.Player] -> [GHC.Types.Char]
+                   go :: [GHC.Maybe.Maybe GameTypes.Player] -> [GHC.Types.Char]
                      {- Arity: 1, Strictness: <S,1*U> -}
                    = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
                      case ds of wild {
                        [] -> GHC.Types.[] @ GHC.Types.Char
                        : y ys
                        -> case y of wild1 {
-                            GHC.Maybe.Nothing -> go2 ys
+                            GHC.Maybe.Nothing -> go ys
                             GHC.Maybe.Just ds1
                             -> case ds1 of wild2 { GameTypes.Player i ds2 ds3 ->
                                case ds2 of wild3 { GameTypes.Hand cs ->
                                case GHC.Integer.Type.eqInteger# i w of wild4 {
-                                 DEFAULT -> go2 ys
+                                 DEFAULT -> go ys
                                  1#
                                  -> case GameLogic.showPlayerCards_go cs of wild5 {
-                                      [] -> go2 ys
+                                      [] -> go ys
                                       : x xs1
                                       -> GHC.Base.++
                                            @ GHC.Types.Char
@@ -256,10 +242,10 @@ fb3cd8978d1bbd61b437c456e5ddcb0b
                                                     @ [GHC.Types.Char]
                                                     GameLogic.showPlayerCards1
                                                     xs1)))
-                                           (go2 ys) } } } } } }
+                                           (go ys) } } } } } }
                  } in
-                 go2 ww) -}
-474cf837fcc7eb8f0f631fdb84675441
+                 go ww) -}
+ae8fe46d14388153fea9e6ce21e92236
   $wshowPlayerScore ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GameTypes.Id -> GHC.Base.String
@@ -267,18 +253,18 @@ fb3cd8978d1bbd61b437c456e5ddcb0b
      Unfolding: (\ (ww :: [GHC.Maybe.Maybe GameTypes.Player])
                    (w :: GameTypes.Id) ->
                  letrec {
-                   go2 :: [GHC.Maybe.Maybe GameTypes.Player] -> [GHC.Types.Char]
+                   go :: [GHC.Maybe.Maybe GameTypes.Player] -> [GHC.Types.Char]
                      {- Arity: 1, Strictness: <S,1*U> -}
                    = \ (ds :: [GHC.Maybe.Maybe GameTypes.Player]) ->
                      case ds of wild {
                        [] -> GHC.Types.[] @ GHC.Types.Char
                        : y ys
                        -> case y of wild1 {
-                            GHC.Maybe.Nothing -> go2 ys
+                            GHC.Maybe.Nothing -> go ys
                             GHC.Maybe.Just ds1
                             -> case ds1 of wild2 { GameTypes.Player i ds2 s ->
                                case GHC.Integer.Type.eqInteger# i w of wild3 {
-                                 DEFAULT -> go2 ys
+                                 DEFAULT -> go ys
                                  1#
                                  -> case GHC.Show.$w$cshowsPrec4
                                            0#
@@ -287,10 +273,10 @@ fb3cd8978d1bbd61b437c456e5ddcb0b
                                     GHC.Base.++
                                       @ GHC.Types.Char
                                       (GHC.Types.: @ GHC.Types.Char ww3 ww4)
-                                      (go2 ys) } } } } }
+                                      (go ys) } } } } }
                  } in
-                 go2 ww) -}
-bd04b8dddd46f48f27440fbe11d789bb
+                 go ww) -}
+eefdf6213bcddf5ed34a9ff2f0b4a0ed
   $wshuffle ::
     [GameTypes.Card]
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -299,7 +285,7 @@ bd04b8dddd46f48f27440fbe11d789bb
      Unfolding: (\ (ww :: [GameTypes.Card])
                    (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  case System.Random.$fRandomInt3
-                        (GameLogic.setupGame17,
+                        (GameLogic.setupGame5,
                          case GHC.List.$wlenAcc @ GameTypes.Card ww 0# of ww2 { DEFAULT ->
                          GHC.Types.I# (GHC.Prim.-# ww2 1#) })
                         w of ds1 { (#,#) ipv ipv1 ->
@@ -311,12 +297,12 @@ bd04b8dddd46f48f27440fbe11d789bb
                                 @ GameTypes.Card
                                 wild
                                 ww of ww1 { (#,#) ww2 ww3 ->
-                         GameLogic.setupGame16 ww2 ww3 }
+                         GameLogic.setupGame4 ww2 ww3 }
                       1#
-                      -> GameLogic.setupGame16
+                      -> GameLogic.setupGame4
                            (GHC.Types.[] @ GameTypes.Card)
                            ww } } #) }) -}
-c83876aab5241919c70c7b1062553318
+016deee90e3fe25d8652e958aceb73a5
   $wshuffleDeck' ::
     GHC.Prim.Int#
     -> GHC.Types.IO GameTypes.Deck
@@ -328,7 +314,7 @@ c83876aab5241919c70c7b1062553318
   $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
      Inline: [2] -}
-f3d59d0dd4503089a0aae1bb93dccca3
+2cbd14b05b8ba1fb2f08e9807f346a4d
   checkGameStatus :: GameTypes.Game -> GameTypes.Id -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><S,U>,
      Inline: [2],
@@ -336,7 +322,7 @@ f3d59d0dd4503089a0aae1bb93dccca3
                 (\ (w :: GameTypes.Game) (w1 :: GameTypes.Id) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
                  GameLogic.$wcheckGameStatus ww2 w1 }) -}
-05dabf585ac7e30ff631a162718d5e90
+7e55c89ceaf0f6a3e9c9cfdeca2b7bdb
   checkPlayerScore ::
     GameTypes.Game -> GameTypes.Id -> GHC.Types.Bool
   {- Arity: 2, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)><L,U>,
@@ -348,11 +334,11 @@ f3d59d0dd4503089a0aae1bb93dccca3
 868ef658ae5040f41e81c86b16ca592f
   checkPlayerScore1 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (21) -}
-2236224d5cfae2ffb4b516c168c479b2
+ae192a9de1d2420d94afd6574e10442c
   createPlayers ::
     GHC.Integer.Type.Integer -> [GHC.Maybe.Maybe GameTypes.Player]
   {- Arity: 1, Strictness: <S,U> -}
-bb2870dba2d23ecb892b41e92376e72c
+63884a3ef5bbd96ef6c659c23e6c9adb
   dealCard :: GameTypes.Game -> GameTypes.Id -> GameTypes.Game
   {- Arity: 2, HasNoCafRefs,
      Strictness: <S(SL),1*U(1*U(U),1*U)><L,U>m, Inline: [2],
@@ -362,23 +348,21 @@ bb2870dba2d23ecb892b41e92376e72c
                  case ww1 of ww3 { GameTypes.Deck ww4 ->
                  case GameLogic.$wdealCard ww4 ww2 w1 of ww5 { (#,#) ww6 ww7 ->
                  GameTypes.Game ww6 ww7 } } }) -}
-7b529e7a777f273ff4dc93f04cfc6bb8
+bbf987c087a010326f4727d9e0a69cc7
   determineWinner ::
     GameTypes.Game -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
-  {- Arity: 1, Strictness: <S(LS),1*U(A,1*U)>, Inline: [2],
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LS),1*U(A,1*U)>,
+     Inline: [2],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: GameTypes.Game) ->
                  case w of ww { GameTypes.Game ww1 ww2 ->
-                 GameLogic.$wdetermineWinner ww2 }) -}
-d228d2e624395a7aec49b69dfa676561
-  determineWinner1 :: GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
-  {- Strictness: x -}
-9a84c91262d0475b7dbf24cdbeac51a4
+                 GameLogic.determineWinner_go ww2 }) -}
+f4fe399d8eb6092ab54d3378c67d44d0
   determineWinner_go ::
     [GHC.Maybe.Maybe GameTypes.Player]
     -> GHC.Maybe.Maybe (GameTypes.Id, GameTypes.Score)
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-ba6328f19876656956b288d6b3f66030
+1d57a66a20c2f628123f6ad268f697bf
   dropPlayer :: GameTypes.Game -> GameTypes.Id -> GameTypes.Game
   {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U(U,1*U)><L,U>m,
      Inline: [2],
@@ -410,7 +394,7 @@ ba6328f19876656956b288d6b3f66030
                                     1# -> GHC.Maybe.Nothing @ GameTypes.Player } } }))
                          n
                          ww2)) }) -}
-89ac6fd95a378e530753950815a9c7da
+000aa34840030da3e6f7bcbd9f530b39
   scoreAllPlayers :: GameTypes.Game -> GameTypes.Game
   {- Arity: 1, Strictness: <S,1*U(U,1*U)>m,
      Unfolding: InlineRule (1, True, False)
@@ -434,7 +418,7 @@ ba6328f19876656956b288d6b3f66030
                             GameLogic.scoreAllPlayers1)
                          n
                          players)) }) -}
-d97b0d6aeff0d437667b256715bbdc89
+0291396d3e3881217b65349ce031a068
   scoreAllPlayers1 ::
     GHC.Maybe.Maybe GameTypes.Player
     -> GHC.Maybe.Maybe GameTypes.Player
@@ -459,13 +443,13 @@ d97b0d6aeff0d437667b256715bbdc89
                                    GameLogic.checkPlayerScore1 of wild3 {
                               DEFAULT -> temp
                               1# -> GameLogic.scoreAllPlayers_go cards }) } }) }) -}
-49d6a1eaa5afd467ac99f95aeee29fa2
+6769d04202fbaad07687203b69ff3fd9
   scoreAllPlayers_go :: [GameTypes.Card] -> GHC.Integer.Type.Integer
   {- Arity: 1, Strictness: <S,1*U> -}
-0ad1db3b0640a17d015db6bb4c4a5ae8
+a2ef082c5b940a711ba6cd0194f4fc4f
   scoreAllPlayers_go1 :: [GameTypes.Card] -> GHC.Integer.Type.Integer
   {- Arity: 1, Strictness: <S,1*U> -}
-645bc94e4a876edcff6562482c808b17
+368db93480095565deeeabb23adc236b
   setupGame ::
     GHC.Integer.Type.Integer -> GHC.Types.IO GameTypes.Game
   {- Arity: 2, Strictness: <L,U><S,U>,
@@ -474,7 +458,7 @@ d97b0d6aeff0d437667b256715bbdc89
                   `cast`
                 (<GHC.Integer.Type.Integer>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
-60df05a7d82dbc7dabf844e2c6ccdce1
+a4b85ea0bc2e6846098eaea53711a6f8
   setupGame1 ::
     GHC.Integer.Type.Integer
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -509,50 +493,19 @@ d97b0d6aeff0d437667b256715bbdc89
                          @ (GHC.Maybe.Maybe GameTypes.Player)
                          GameLogic.scoreAllPlayers1
                          ww6) } } } #) }) -}
-cfbe7d9d2e819d8f4a39dd02fae6d823
-  setupGame10 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Eight
-                   GameLogic.setupGame11) -}
-bed43efb7badf80e5c838654e151ff78
-  setupGame11 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Nine
-                   GameLogic.setupGame12) -}
-970cd9c1c04b6e970d3fa2add349c75b
-  setupGame12 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Ten
-                   GameLogic.setupGame13) -}
-d7d569b264d7b4e0f1f605893e15a00a
-  setupGame13 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Jack
-                   GameLogic.setupGame14) -}
-0726f7adc9befff44a8be70b106936a1
-  setupGame14 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Queen
-                   GameLogic.setupGame15) -}
-c8a55ef70f8e619f2c4e772d04cb0389
-  setupGame15 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.King
-                   (GHC.Types.[] @ GameTypes.Rank)) -}
-78b38a458a756d484c03c41095b88634
-  setupGame16 ::
+476285b9c966c0b1a549510be68a1a89
+  setupGame2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Deck #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 GameLogic.$wshuffle GameLogic.setupGame3 w) -}
+6f4f729397dfbf4a9428abcba1fc7a08
+  setupGame3 :: [GameTypes.Card]
+  {- Unfolding: (GameLogic.setupGame_go
+                   (GameTypes.$fEnumSuit_go 0#)) -}
+b50b6d5c3e86918811d82f0a12d75fe1
+  setupGame4 ::
     [GameTypes.Card] -> [GameTypes.Card] -> GameTypes.Deck
   {- Arity: 2, Strictness: <S,1*U><S,1*U>m,
      Unfolding: (\ (ww :: [GameTypes.Card])[OneShot]
@@ -569,75 +522,16 @@ c8a55ef70f8e619f2c4e772d04cb0389
                                @ [GameTypes.Card]
                                ww4
                                (GHC.Types.[] @ [GameTypes.Card]))))) }) -}
-344cd40cadb04103a268f7978620cc56
-  setupGame17 :: GHC.Types.Int
+e2c86d34a46f5fda5c90217464e2e264
+  setupGame5 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-b06a4f5f4114fdd1bb26355ced753abf
-  setupGame2 ::
-    GHC.Prim.State# GHC.Prim.RealWorld
-    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Deck #)
-  {- Arity: 1, Strictness: <S,U>,
-     Unfolding: (\ (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
-                 GameLogic.$wshuffle GameLogic.setupGame3 w) -}
-416a9c940647ca410330e9d4a09f1676
-  setupGame3 :: [GameTypes.Card]
-  {- Unfolding: (GameLogic.setupGame_go GameLogic.setupGame_ranks) -}
-4b2a1dd6a82be94d23b05d3c9e95fb48
-  setupGame4 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Two
-                   GameLogic.setupGame5) -}
-92a4f80fa628be4a0c9328b71b0b92d8
-  setupGame5 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Three
-                   GameLogic.setupGame6) -}
-7264d0addc525787bd11373913d4a82c
-  setupGame6 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Four
-                   GameLogic.setupGame7) -}
-3155380e929b56002096ae9c7dcd48d0
-  setupGame7 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Five
-                   GameLogic.setupGame8) -}
-55f7f77ec22abed8c9f10e1758ec149b
-  setupGame8 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Six
-                   GameLogic.setupGame9) -}
-b4f0dd4ac3b5b24886e0e62e81bf03a2
-  setupGame9 :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Seven
-                   GameLogic.setupGame10) -}
-54355ac38fb8b48ac3938ad18a5fbd9b
-  setupGame_go :: [GameTypes.Rank] -> [GameTypes.Card]
+298d924c7e62d67df65d3c2c12803086
+  setupGame_go :: [GameTypes.Suit] -> [GameTypes.Card]
   {- Arity: 1, Strictness: <S,1*U> -}
-a0a60fbeeb90e579205e95687342478c
+fbde08a57d6af7710823f7899580cb5e
   setupGame_go1 :: [[GameTypes.Card]] -> [GameTypes.Card]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-d6f0e0c4f55cbee41917b3c3cb3106b5
-  setupGame_ranks :: [GameTypes.Rank]
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Types.:
-                   @ GameTypes.Rank
-                   GameTypes.Ace
-                   GameLogic.setupGame4) -}
-7520c906f1272e717b90f8a1fc2b520e
+136440e3b26ed1c7bfc3b675396d234c
   showPlayerCards ::
     GameTypes.Game -> GameTypes.Id -> GHC.Base.String
   {- Arity: 2, Strictness: <S(LS),1*U(A,1*U)><L,U>, Inline: [2],
@@ -652,10 +546,10 @@ ad96e6d9fca2267423cd44e3df39a151
 a761f57c21ccfca7ba6add97f9b5b95a
   showPlayerCards2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: (", "#) -}
-9850452bac05ef8b509dfb51a7963a92
+2aa9e3604a906af4c75cd956d64bfacf
   showPlayerCards_go :: [GameTypes.Card] -> [[GHC.Types.Char]]
   {- Arity: 1, Strictness: <S,1*U> -}
-2916c94234a3569675e7952c93f754ac
+771f0d70d54f43060bb11281c9e3dbfa
   showPlayerScore ::
     GameTypes.Game -> GameTypes.Id -> GHC.Base.String
   {- Arity: 2, Strictness: <S(LS),1*U(A,1*U)><L,U>, Inline: [2],

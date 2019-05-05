@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2019-05-05 02:47:25.7026429 UTC
+2019-05-05 03:10:03.1397973 UTC
 
 interface main:Main 8064
-  interface hash: d839c6c6e7a66c86268c563b8f6944df
-  ABI hash: 6ebae2c102019ef99262c3b237e7e93f
+  interface hash: 1e4099837b5652af1b22ea187f3a7d5e
+  ABI hash: 4a34d8f8cf6e65404ccb74d98ccd34fe
   export-list hash: 5cb9f861b139c0ce80fd1fda0779f004
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: d99695e32fb9f9a604a24ed84e77d17d
@@ -39,11 +39,11 @@ import  -/  base-4.12.0.0:GHC.Base 954f4c258d193fab7048a63bfeb56dcf
 import  -/  base-4.12.0.0:Prelude aea9afd24db8aed3563d7d850ea453c0
 import  -/  base-4.12.0.0:System.IO ef7039badfa76f34317e352d4f124933
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
-import  -/  GameUI 23feb392ddbcdf6fbb4c43635e07be45
+import  -/  GameUI 72d8b1dda6dde1f31f3c81f76527f06b
   exports: a1a1d440c423a68e93674cc3bccaf733
-  beginRound ac2a930addf60f48a87beda22a9b26bd
+  beginRound ec33ae52acfbe8091ba100836b6b5778
   endProgram 374b0325ceb06a7b95d23ea223ed5602
-  startGame ebcec210a6c97bde83ae5b0ee0b9fe3a
+  startGame afad897f69025ef6feb4bb0d93b0a066
 be86c9d078d3acbf19ba91fe74a24273
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -72,12 +72,12 @@ faa185e9ceb47e165febe949c8b1b909
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 1, Strictness: <S,U> -}
-a0369c79abbf6936c159ddec2c49f9c7
+86f3a40e1c3d6ec648d74886250254e5
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
-b2dadf976107a0d3e9a9db26d0400cd1
+9929ff95ef4e4676bc9523b488309f39
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -95,7 +95,7 @@ b2dadf976107a0d3e9a9db26d0400cd1
 f52b33e22d5767edb8223e713d1c8d29
   main2 :: GHC.Integer.Type.Integer
   {- HasNoCafRefs, Unfolding: (1) -}
-ab20dab1f38a950ce4b6fc4ce3e0e9f3
+37b9d81f2543a7930a0e3870c2aa5a3c
   main3 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)

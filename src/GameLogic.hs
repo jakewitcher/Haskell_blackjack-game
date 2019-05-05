@@ -12,8 +12,8 @@ import Data.List (transpose,  intercalate)
 import System.Random (randomRIO)
 import GameTypes
 
-suits = [Spade, Club, Heart, Diamond]
-ranks = [Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King]
+suits = [Spade .. Diamond]
+ranks = [Ace .. King]
 
 makeDeck :: [Suit] -> [Rank] -> Deck
 makeDeck suits ranks =
@@ -179,7 +179,7 @@ checkGameStatus game@(Game deck players) playerId =
   playerId < (toInteger $ length players) 
 
 determineWinner :: Game -> Maybe (Id, Score)
-determineWinner (Game _ (player:players)) =
+determineWinner (Game _ players) =
   foldr go Nothing players
   where go m best =
           case m of
