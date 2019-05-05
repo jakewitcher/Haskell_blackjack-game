@@ -1,0 +1,145 @@
+
+==================== FINAL INTERFACE ====================
+2019-05-05 02:57:08.912866 UTC
+
+interface main:GameUI 8064
+  interface hash: cf826824872aa20ba623f7325e1b09f6
+  ABI hash: 23feb392ddbcdf6fbb4c43635e07be45
+  export-list hash: a1a1d440c423a68e93674cc3bccaf733
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: c81183b4f3dbe34d2e7de0e678a2e9cc
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  GameUI.beginRound
+  GameUI.endProgram
+  GameUI.startGame
+module dependencies: GameLogic GameTypes
+package dependencies: Win32-2.6.1.0 array-0.5.3.0 base-4.12.0.0*
+                      deepseq-1.4.4.0 ghc-prim-0.5.3 integer-gmp-1.0.2.0 random-1.1
+                      time-1.8.0.2
+orphans: time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+import  -/  base-4.12.0.0:GHC.Base 954f4c258d193fab7048a63bfeb56dcf
+import  -/  base-4.12.0.0:GHC.Num 009f4fca9200daff9e3ffbe2d7676a2f
+import  -/  base-4.12.0.0:GHC.Show 48dce8b8129312101170e57c24f3ecbd
+import  -/  base-4.12.0.0:Prelude aea9afd24db8aed3563d7d850ea453c0
+import  -/  base-4.12.0.0:System.Exit a9a516a6f7156d1805324e8ca40bf315
+import  -/  base-4.12.0.0:System.IO ef7039badfa76f34317e352d4f124933
+import  -/  base-4.12.0.0:Text.Read e7452753e4b5b609f2d5caebdb00e722
+import  -/  ghc-prim-0.5.3:GHC.Classes 6002495dc43e58d28c87e5e5e058752a
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  integer-gmp-1.0.2.0:GHC.Integer.Type 34234e515bc4cbda6d7cda923884fd3f
+import  -/  GameLogic 6a2b257487ac107a03b410604db7acc5
+  exports: 7a513fc0946caf822384ba5b39650778
+  checkGameStatus f3d59d0dd4503089a0aae1bb93dccca3
+  checkPlayerScore 05dabf585ac7e30ff631a162718d5e90
+  dealCard bb2870dba2d23ecb892b41e92376e72c
+  determineWinner 7b529e7a777f273ff4dc93f04cfc6bb8
+  dropPlayer ba6328f19876656956b288d6b3f66030
+  scoreAllPlayers 89ac6fd95a378e530753950815a9c7da
+  setupGame 645bc94e4a876edcff6562482c808b17
+  showPlayerCards 7520c906f1272e717b90f8a1fc2b520e
+  showPlayerScore 2916c94234a3569675e7952c93f754ac
+import  -/  GameTypes 3f6d9af0e75c13797764bd61b26d7233
+  exports: d0cfcd50ba0ec194499f629b661e84f4
+  Game a06bafd2ffb458968cf7f1709c1bbf99
+  Game 3bce3074357214c65a171812000654b7
+  Id a797aeaff508cea35068e953c1207cac
+  Score aee40ddf141d35912419bc402b0cc0b9
+e408f8d3d2995f55766f006e89d6e72d
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   GameUI.$trModule3
+                   GameUI.$trModule1) -}
+2d4eb66feb65568bbabc81eda249469e
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameUI.$trModule2) -}
+3030f69aa0dead895603d83f879b6d0f
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("GameUI"#) -}
+8a20a4db43e598b1f8a4dc85a4e7f494
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS GameUI.$trModule4) -}
+f864dae0b07e0672aabf2a2e2b97c6c1
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("main"#) -}
+231b679fef48fbebbadac97a2238724d
+  $wbeginRound ::
+    GameTypes.Deck
+    -> [GHC.Maybe.Maybe GameTypes.Player]
+    -> GameTypes.Id
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
+  {- Arity: 4, Strictness: <L,U(U)><L,U><L,U><S,U>, Inline: [2] -}
+ac2a930addf60f48a87beda22a9b26bd
+  beginRound ::
+    GameTypes.Game -> GameTypes.Id -> GHC.Types.IO GameTypes.Game
+  {- Arity: 3, Strictness: <S,1*U(U(U),U)><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                GameUI.beginRound1
+                  `cast`
+                (<GameTypes.Game>_R
+                 ->_R <GameTypes.Id>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
+99635e7cae75b57d7182ee083721f87a
+  beginRound1 ::
+    GameTypes.Game
+    -> GameTypes.Id
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
+  {- Arity: 3, Strictness: <S,1*U(U(U),U)><L,U><S,U>, Inline: [2],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: GameTypes.Game)
+                   (w1 :: GameTypes.Id)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of ww { GameTypes.Game ww1 ww2 ->
+                 GameUI.$wbeginRound ww1 ww2 w1 w2 }) -}
+374b0325ceb06a7b95d23ea223ed5602
+  endProgram :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                GameUI.endProgram1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+c652f32f32a46b25a8560a0b438857a0
+  endProgram1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U> -}
+ebcec210a6c97bde83ae5b0ee0b9fe3a
+  startGame :: GHC.Types.IO GameTypes.Game
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                GameUI.startGame1
+                  `cast`
+                (Sym (GHC.Types.N:IO[0] <GameTypes.Game>_R)) -}
+7a97d222f1bd3fec418be5990851b911
+  startGame1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GameTypes.Game #)
+  {- Arity: 1, Strictness: <S,U> -}
+trusted: safe
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

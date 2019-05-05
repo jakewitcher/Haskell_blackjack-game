@@ -1,5 +1,6 @@
 name:                   blackjack
 version:                0.1.0.0
+description:            A game of Blackjack for 1 to 7 players
 synopsis:               Playing Blackjack
 homepage:               https://github.com/githubuser/blackjack#readme
 license:                BSD3
@@ -15,7 +16,9 @@ extra-source-files:     README.md
 executable blackjack
   hs-source-dirs:       src
   main-is:              Main.hs
-  other-modules:        GameTypes
+  other-modules:        GameLogic
+                      , GameTypes
+                      , GameUI
   default-language:     Haskell2010
   build-depends:        base >= 4.7 && < 5
                       , random
