@@ -48,17 +48,25 @@ shuffleDeck' count deck = shuffleDeck' (count - 1) (deck >>= shuffle)
 shuffleDeck :: Deck -> IO Deck 
 shuffleDeck = (shuffleDeck' 10000) . shuffle
 
-createPlayers :: Integer -> [Player]
+createPlayers :: Integer -> [Maybe Player]
 createPlayers 0 = []
 createPlayers playerCount =
-  createPlayers (playerCount - 1) ++ [Player playerCount (Hand []) 0]
+  createPlayers (playerCount - 1) ++ [Just $ Player playerCount (Hand []) 0]
 
 dealCard :: Game -> Id -> Game
 dealCard (Game (Deck deck) players) id = 
   Game d (go id $ players)
   where d = Deck $ drop 1 deck
         c = take 1 deck
-        go i = map (\p@(Player x (Hand h) s) -> if x == i then Player x (Hand $ c ++ h) s else p)
+        go i =
+          map (\m ->deal m i)
+        deal m i =
+          case m of 
+            Just p@(Player x (Hand h) s) ->
+              if x == i 
+                then Just $ Player x (Hand $ c ++ h) s 
+                else Just p
+            Nothing -> Nothing
 
 firstHand :: Game -> Game
 firstHand g@(Game _ players) = 
@@ -92,7 +100,7 @@ scorePlayer (Player id h@(Hand cards) _) =
 
 scoreAllPlayers :: Game -> Game 
 scoreAllPlayers (Game deck players) =
-  Game deck (map scorePlayer players)
+  Game deck (map (fmap scorePlayer) players)
 
 setupGame :: Deck -> Integer -> IO Game
 setupGame deck playerCount = do
@@ -112,22 +120,44 @@ startGame = do
 
 showPlayerCards :: Game -> Id -> String
 showPlayerCards (Game _ players) id =
-  intercalate ", " cards
-  where (Player _ (Hand cs) _) = 
-          head $ filter (\(Player i _ _) -> i == id) players
-        cards = foldr (\(Card suit rank) s -> (:s) $ (show rank) ++ " of " ++ (show suit) ++ "s") [] cs
+   printPlayerCards players
+  where printPlayerCards =
+          foldr (\m result ->
+                  case m of 
+                    Just (Player i (Hand cs) _) -> 
+                      if i == id
+                        then (++ result) $ (intercalate ", ") . showCards $ cs
+                        else "" ++ result
+                    Nothing -> "" ++ result
+                ) ""
+        showCards =
+          foldr (\(Card suit rank) s -> (:s) $ (show rank) ++ " of " ++ (show suit) ++ "s") []
 
 showPlayerScore :: Game -> Id -> String
 showPlayerScore (Game _ players) id =
-  show score
-  where (Player _ _ score) = 
-          head $ filter (\(Player i _ _) -> i == id) players
+  printPlayerScore players
+  where printPlayerScore = 
+          foldr (\m result -> 
+                  case m of
+                    Just (Player i _ s) -> 
+                      if i == id 
+                        then (show s) ++ result 
+                        else "" ++ result
+                    Nothing -> "" ++ result
+                ) ""
 
-getPlayerScore :: Game -> Id -> Score 
+getPlayerScore :: Game -> Id -> Maybe Score 
 getPlayerScore (Game _ players) id =
-  score
-  where (Player _ _ score) = 
-          head $ filter (\(Player i _ _) -> i == id) players
+  findPlayer id players
+  where findPlayer id =
+          foldr (\m r -> 
+                  case m of 
+                    Just (Player i _ s) -> 
+                      if i == id 
+                        then Just s
+                        else Nothing
+                    Nothing -> Nothing
+                  ) Nothing
 
 beginRound :: Game -> Id -> IO Game
 beginRound game@(Game _ players) playerId = do
@@ -136,9 +166,16 @@ beginRound game@(Game _ players) playerId = do
   putStrLn "========================="
   putStrLn $ "Your current cards are " ++ (showPlayerCards game playerId)
   putStrLn $ "And your current score is " ++ (showPlayerScore game playerId)
-  if (getPlayerScore game playerId) > 21
+  if checkPlayerScore game playerId
     then continueRoundWithNextPlayer game playerId
     else continueRoundWithCurrentPlayer game playerId
+
+checkPlayerScore :: Game -> Id -> Bool 
+checkPlayerScore game id =
+  let m = getPlayerScore game id
+    in case m of
+        Just x -> if x > 21 then True else False
+        Nothing -> False
 
 continueRoundWithNextPlayer :: Game -> Id -> IO Game 
 continueRoundWithNextPlayer game id = do 
@@ -149,7 +186,14 @@ dropPlayer :: Game -> Id -> Game
 dropPlayer (Game deck players) id =
   Game deck remainingPlayers
   where remainingPlayers =
-          filter (\(Player i _ _) -> i /= id) players
+          map (\m -> 
+                case m of 
+                  Just p@(Player i _ _) -> 
+                    if i == id 
+                      then Nothing 
+                      else Just p
+                  Nothing -> Nothing
+              ) players
 
 continueRoundWithCurrentPlayer :: Game -> Id -> IO Game 
 continueRoundWithCurrentPlayer game@(Game _ players) playerId = do
@@ -168,18 +212,40 @@ checkGameStatus game@(Game deck players) playerId =
     else beginRound game playerId
 
 endRound :: Game -> IO Game
-endRound game = undefined
+endRound game = do
+  putStrLn $ (announceWinner . determineWinner) game
+  return game
 
-determineWinner :: Game -> (Id, Score)
-determineWinner (Game _ ((Player i _ s):players)) =
-  foldr go (i, s) players
-  where go (Player id _ score) best =
-          if snd best >= score 
-            then best 
-            else (id, score)
+endGame :: IO Game -> IO ()
+endGame game = do
+  putStrLn "Would you like to play again? (Y) (N)"
+  response <- getLine
+  case response of
+    "Y" -> main
+    "N" -> endProgram
 
-announceWinner :: (Id, Score) -> String
-announceWinner winner =
-  "The winner is Player " ++ (winnerId) ++ " with a score of " ++ (winnerScore) ++ " points!"
-  where winnerId = show $ fst winner
-        winnerScore = show $ snd winner
+endProgram :: IO ()
+endProgram = do 
+  putStrLn "Thanks for playing!"
+  exitSuccess
+  return ()
+
+determineWinner :: Game -> Maybe (Id, Score)
+determineWinner (Game _ (player:players)) =
+  foldr go Nothing players
+  where go m best =
+          case m of
+            Just (Player id _ score) ->
+              case best of
+                Just (i, s) -> 
+                  if s >= score 
+                    then best 
+                    else Just (id, score)
+                Nothing -> Just (id, score)
+            Nothing -> best
+
+announceWinner :: Maybe (Id, Score) -> String
+announceWinner m =
+  case m of
+    Just (id, score) -> "The winner is Player " ++ (show id) ++ " with a score of " ++ (show score) ++ " points!"
+    Nothing -> "I'm sorry, I guess you are all losers"

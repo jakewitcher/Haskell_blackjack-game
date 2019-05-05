@@ -36,5 +36,5 @@ type Id = Integer
 data Player = Player Id Hand Score
           deriving Show
 
-data Game = Game Deck [Player] 
+data Game = Game Deck [Maybe Player]
           deriving Show
